@@ -25,7 +25,11 @@ public class MainActivity extends AppCompatActivity {
     }
     //metodo para el boton
     public void iniciSessio(View view){
-        Toast.makeText(this, "Conectan!!!!!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, inputUser.getText(), Toast.LENGTH_SHORT).show();
+    }
+
+    public void validarDades(View view){
+
     }
 
 }
