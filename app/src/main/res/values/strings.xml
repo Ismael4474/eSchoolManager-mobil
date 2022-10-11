@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">eSchoolManager-mobil</string>
+    <string name="textBenvinguts">Benvinguts! Inicia sessió</string>
+    <string name="logo_description">Logo</string>
+    <string name="txt_usuari">Usuari</string>
+    <string name="txt_contrasenya">Contrasenya</string>
+    <string name="txt_iniciar_sessi">Iniciar Sessió</string>
+</resources>
