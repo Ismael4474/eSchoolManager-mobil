@@ -1,4 +1,4 @@
-package com.ismaellopez.eschoolmanager_mobil;
+package com.ismaellopez.eschoolmanager_mobil.controlador;
 
 import android.os.AsyncTask;
 import android.util.Log;
@@ -25,7 +25,6 @@ public class Connexio extends AsyncTask<String,Void,String> {
             out = new PrintWriter(socket.getOutputStream(), true);
             in = new InputStreamReader(socket.getInputStream());
             bufReader = new BufferedReader(in);
-            Log.e("Crida", json);
             out.println(json);
             resposta = bufReader.readLine();
             socket.close();

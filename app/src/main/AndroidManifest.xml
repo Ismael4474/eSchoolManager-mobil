@@ -15,7 +15,7 @@
         android:theme="@style/Theme.ESchoolManagermobil"
         tools:targetApi="31">
         <activity
-            android:name=".PantallaPrincipal"
+            android:name=".modelo.PantallaPrincipal"
             android:exported="false"
             android:theme="@style/Theme.Design.NoActionBar">
             <meta-data
@@ -23,7 +23,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".modelo.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
