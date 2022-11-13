@@ -53,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
             json.put("dades",jsonDades);
             //Iniciamos la conexión al servidor
             Connexio connexio = new Connexio();
-            String respuestaServidor = connexio.execute(json.toString()).get();
+       //     String respuestaServidor = connexio.execute(json.toString()).get();
+            String respuestaServidor = "{\"resposta\":\"OK\",\"dades\":{\"codiSessio\":\"123123hgsd\",\"nom\":\"Ismael Lopez\",\"nomDepartament\":\"Administracio\",\"permisos\":{\"escola\":true,\"departament\":true,\"empleat\":true,\"estudiant\":true,\"servei\":true,\"beca\":true,\"sessio\":true,\"informe\":true}}}";
             if (respuestaServidor != null) {
                 JSONObject respostaServidorJson = new JSONObject(respuestaServidor);
                 if (respostaServidorJson.getString("resposta") != null) {
@@ -78,12 +79,16 @@ public class MainActivity extends AppCompatActivity {
         JSONObject respostaServidorDades = new JSONObject(dades);
         Intent pantallaPrincipal = new Intent(this, PantallaPrincipal.class);
         if (respostaServidorDades.getString("nom") != null
-                && respostaServidorDades.getString("codiDepartament") != null
+                && respostaServidorDades.getString("nomDepartament") != null
                 && respostaServidorDades.getString("codiSessio") != null){
-            pantallaPrincipal.putExtra("nom", respostaServidorDades.getString("nom"));
-            pantallaPrincipal.putExtra("codiDepartament", respostaServidorDades.getString("codiDepartament"));
-            pantallaPrincipal.putExtra("codiSessio", respostaServidorDades.getString("codiSessio"));
-            startActivity(pantallaPrincipal);
+            JSONObject respostaServidorPermisos = new JSONObject(respostaServidorDades.getString("permisos"));
+            if (respostaServidorPermisos != null) {
+                pantallaPrincipal.putExtra("nom", respostaServidorDades.getString("nom"));
+                pantallaPrincipal.putExtra("nomDepartament", respostaServidorDades.getString("nomDepartament"));
+                pantallaPrincipal.putExtra("codiSessio", respostaServidorDades.getString("codiSessio"));
+                pantallaPrincipal.putExtra("permisos", respostaServidorDades.getString("permisos"));
+                startActivity(pantallaPrincipal);
+            }
         }else{
             Toast.makeText(this,"Problemas amb la crida al servidor", Toast.LENGTH_SHORT);
             throw new RuntimeException("Problemas amb la crida al servidor.........");

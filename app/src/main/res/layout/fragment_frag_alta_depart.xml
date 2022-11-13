@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".modelo.departaments.FragAltaDepart">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="-23dp">
+
+
+        <TextView
+            android:id="@+id/titolAltaDepart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:fontFamily="@font/alfa_slab_one"
+            android:shadowColor="#151313"
+            android:text="Alta Nou Departament"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <EditText
+            android:id="@+id/editTextTextPersonName2"
+            android:layout_width="186dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="52dp"
+            android:layout_marginEnd="120dp"
+            android:background="#E8E0E0"
+            android:drawableTint="@color/black"
+            android:ems="10"
+            android:hint="Nom"
+            android:inputType="textPersonName"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titolAltaDepart" />
+
+        <TextView
+            android:id="@+id/titolCheKBoxAltaDepart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selecciona els privilegis del departament........"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/checkBoxAltaEmpeleat"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.129"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
+            app:layout_constraintVertical_bias="0.741" />
+
+        <CheckBox
+            android:id="@+id/checkBoxAltaEmpeleat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="60dp"
+            android:buttonTint="@color/black"
+            android:text="Departament"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/checkBoxAltaEmpleat"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
+            tools:ignore="MissingConstraints" />
+
+        <CheckBox
+            android:id="@+id/checkBoxAltaEscola"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:buttonTint="@color/black"
+            android:text="Escola"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.591"
+            app:layout_constraintStart_toEndOf="@+id/checkBoxAltaEmpeleat"
+            app:layout_constraintTop_toBottomOf="@+id/titolCheKBoxAltaDepart" />
+
+        <CheckBox
+            android:id="@+id/checkBoxAltaEmpleat"
+            style="@style/Widget.AppCompat.CompoundButton.CheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="12dp"
+            android:buttonTint="@color/black"
+            android:text="Empleat"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titolCheKBoxAltaDepart" />
+
+        <CheckBox
+            android:id="@+id/checkBoxAltaEstudiant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="16dp"
+            android:buttonTint="@color/black"
+            android:text="Estudiants"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/checkBoxAltaEmpleat" />
+
+        <CheckBox
+            android:id="@+id/checkBoxAltaBeca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:buttonTint="@color/black"
+            android:text="Beques"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/checkBoxAltaEstudiant"
+            app:layout_constraintTop_toBottomOf="@+id/checkBoxAltaEmpeleat" />
+
+        <CheckBox
+            android:id="@+id/checkBoxAltaServei"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="12dp"
+            android:buttonTint="@color/black"
+            android:text="Serveis"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/checkBoxAltaBeca"
+            app:layout_constraintTop_toBottomOf="@+id/checkBoxAltaEscola" />
+
+        <CheckBox
+            android:id="@+id/checkBoxAltaSessio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="20dp"
+            android:buttonTint="@color/black"
+            android:text="Sessions"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/checkBoxAltaBeca" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
+            android:text="Acceptar
+"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.457"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/checkBoxAltaBeca"
+            app:rippleColor="@color/purple_700" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

@@ -46,6 +46,7 @@
         android:layout_marginRight="10dp"
         android:drawableLeft="@drawable/ic_baseline_remember_me_24"
         android:drawableTint="@color/white"
+        android:onClick="accesMenuDepartament"
         android:text="Departament"
         app:layout_constraintTop_toBottomOf="@+id/buttonEscola"
         tools:layout_editor_absoluteX="0dp" />
