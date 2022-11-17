@@ -25,7 +25,7 @@ import java.util.concurrent.ExecutionException;
 public class MenuDepartament extends AppCompatActivity {
 
     Toolbar toolbar;
-    Button botonAlta,botonModi,botonBaixa;
+    Button botonAlta,botonModi,botonBaixa, botonLlistar, botonTornar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +39,8 @@ public class MenuDepartament extends AppCompatActivity {
         botonAlta =findViewById(R.id.buttonAltaDepart);
         botonModi = findViewById(R.id.buttonModiDepart);
         botonBaixa = findViewById(R.id.buttonBaixaDepart);
+        botonLlistar = findViewById(R.id.buttonDepartLlistar);
+        botonTornar = findViewById(R.id.buttonDepartTornar);
         datos.putString("titulo", "Departament");
         TituloFragment tituloFragment = new TituloFragment();
         getSupportFragmentManager()
@@ -46,12 +48,42 @@ public class MenuDepartament extends AppCompatActivity {
                 .add(R.id.frameLayoutDepart, tituloFragment)
                 .commit();
 
+        botonModi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                replaceFragment( new FragModiDepart());
+            }
+        });
+
         botonAlta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 replaceFragment( new FragAltaDepart());
             }
         });
+
+        botonBaixa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                replaceFragment( new FragBaixaDepart());
+            }
+        });
+
+        botonTornar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        botonLlistar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                replaceFragment(new FragLlistaDepart());
+            }
+        });
+
     }
 
     private void replaceFragment( Fragment fragment){

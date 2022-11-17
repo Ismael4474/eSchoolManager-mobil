@@ -53,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
             json.put("dades",jsonDades);
             //Iniciamos la conexión al servidor
             Connexio connexio = new Connexio();
-       //     String respuestaServidor = connexio.execute(json.toString()).get();
-            String respuestaServidor = "{\"resposta\":\"OK\",\"dades\":{\"codiSessio\":\"123123hgsd\",\"nom\":\"Ismael Lopez\",\"nomDepartament\":\"Administracio\",\"permisos\":{\"escola\":true,\"departament\":true,\"empleat\":true,\"estudiant\":true,\"servei\":true,\"beca\":true,\"sessio\":true,\"informe\":true}}}";
+            String respuestaServidor = connexio.execute(json.toString()).get();
+    //        String respuestaServidor = "{\"resposta\":\"OK\",\"dades\":{\"codiSessio\":\"123123hgsd\",\"nom\":\"Ismael Lopez\",\"nomDepartament\":\"Administracio\",\"permisos\":{\"escola\":true,\"departament\":true,\"empleat\":true,\"estudiant\":true,\"servei\":true,\"beca\":true,\"sessio\":true,\"informe\":true}}}";
             if (respuestaServidor != null) {
                 JSONObject respostaServidorJson = new JSONObject(respuestaServidor);
                 if (respostaServidorJson.getString("resposta") != null) {

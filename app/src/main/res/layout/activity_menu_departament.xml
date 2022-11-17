@@ -17,43 +17,55 @@
         tools:layout_editor_absoluteX="2dp"></androidx.appcompat.widget.Toolbar>
 
     <Button
-        android:id="@+id/buttonModiDepart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginBottom="28dp"
-        android:text="Modificacio"
+        android:id="@+id/buttonBaixaDepart"
+        android:layout_width="71dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="64dp"
+        android:text="Baixa"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.395"
-        app:layout_constraintStart_toStartOf="parent"
-         />
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toEndOf="@id/buttonModiDepart" />
 
     <Button
         android:id="@+id/buttonAltaDepart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="64dp"
+        android:layout_height="48dp"
         android:layout_marginStart="28dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="64dp"
         android:text="Alta"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonModiDepart"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-         />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/buttonBaixaDepart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="28dp"
-        android:text="Baixa"
+        android:id="@+id/buttonDepartLlistar"
+        android:layout_width="68dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="64dp"
+        android:text="Llistar"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.742"
-        app:layout_constraintStart_toEndOf="@id/buttonModiDepart"
-         />
+        app:layout_constraintHorizontal_bias="0.824"
+        app:layout_constraintStart_toEndOf="@+id/buttonBaixaDepart" />
+
+    <Button
+        android:id="@+id/buttonModiDepart"
+        android:layout_width="74dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginBottom="64dp"
+        android:text="Modificacio"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.176"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <FrameLayout
         android:id="@+id/frameLayoutDepart"
@@ -67,6 +79,7 @@
     </FrameLayout>
 
     <View
+        android:id="@+id/view2"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/black"
@@ -74,5 +87,17 @@
         app:layout_constraintTop_toBottomOf="@+id/frameLayoutDepart"
         app:layout_constraintVertical_bias="0.179"
         tools:layout_editor_absoluteX="0dp"></View>
+
+    <Button
+        android:id="@+id/buttonDepartTornar"
+        android:layout_width="197dp"
+        android:layout_height="48dp"
+        android:text="Tornar"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonBaixaDepart"
+        app:layout_constraintVertical_bias="0.111" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

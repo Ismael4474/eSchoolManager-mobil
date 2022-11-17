@@ -31,10 +31,10 @@
 
 
         <EditText
-            android:id="@+id/editTextTextPersonName2"
+            android:id="@+id/editTextTextNomDepart"
             android:layout_width="186dp"
             android:layout_height="46dp"
-            android:layout_marginTop="52dp"
+            android:layout_marginTop="40dp"
             android:layout_marginEnd="120dp"
             android:background="#E8E0E0"
             android:drawableTint="@color/black"
@@ -42,10 +42,23 @@
             android:hint="Nom"
             android:inputType="textPersonName"
             android:textColor="@color/black"
-            android:textColorHint="@color/black"
+            android:textColorHint="#BAB3B3"
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/titolAltaDepart" />
+
+        <CheckBox
+            android:id="@+id/checkBoxAltaDepart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="88dp"
+            android:buttonTint="@color/black"
+            android:text="Departament"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/checkBoxAltaEmpleat"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextNomDepart"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/titolCheKBoxAltaDepart"
@@ -53,25 +66,12 @@
             android:layout_height="wrap_content"
             android:text="Selecciona els privilegis del departament........"
             android:textColor="@color/black"
-            app:layout_constraintBottom_toTopOf="@+id/checkBoxAltaEmpeleat"
+            app:layout_constraintBottom_toTopOf="@+id/checkBoxAltaDepart"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.129"
+            app:layout_constraintHorizontal_bias="0.145"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
-            app:layout_constraintVertical_bias="0.741" />
-
-        <CheckBox
-            android:id="@+id/checkBoxAltaEmpeleat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="60dp"
-            android:buttonTint="@color/black"
-            android:text="Departament"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toEndOf="@+id/checkBoxAltaEmpleat"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
-            tools:ignore="MissingConstraints" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextNomDepart"
+            app:layout_constraintVertical_bias="0.811" />
 
         <CheckBox
             android:id="@+id/checkBoxAltaEscola"
@@ -82,9 +82,57 @@
             android:text="Escola"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.591"
-            app:layout_constraintStart_toEndOf="@+id/checkBoxAltaEmpeleat"
+            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintStart_toEndOf="@+id/checkBoxAltaDepart"
             app:layout_constraintTop_toBottomOf="@+id/titolCheKBoxAltaDepart" />
+
+        <CheckBox
+            android:id="@+id/checkBoxAltaServei"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="24dp"
+            android:buttonTint="@color/black"
+            android:text="Serveis"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/checkBoxAltaBeca"
+            app:layout_constraintTop_toBottomOf="@+id/checkBoxAltaEscola" />
+
+        <CheckBox
+            android:id="@+id/checkBoxAltaBeca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:buttonTint="@color/black"
+            android:text="Beques"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/checkBoxAltaEstudiant"
+            app:layout_constraintTop_toBottomOf="@+id/checkBoxAltaDepart" />
+
+        <CheckBox
+            android:id="@+id/checkBoxAltaEstudiant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="24dp"
+            android:buttonTint="@color/black"
+            android:text="Estudiants"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/checkBoxAltaEmpleat" />
+
+        <CheckBox
+            android:id="@+id/checkBoxAltaSessio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="12dp"
+            android:buttonTint="@color/black"
+            android:text="Sessions"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/checkBoxAltaBeca" />
 
         <CheckBox
             android:id="@+id/checkBoxAltaEmpleat"
@@ -100,55 +148,20 @@
             app:layout_constraintTop_toBottomOf="@+id/titolCheKBoxAltaDepart" />
 
         <CheckBox
-            android:id="@+id/checkBoxAltaEstudiant"
+            android:id="@+id/checkBoxAltaInforme"
+            style="@style/Widget.AppCompat.CompoundButton.CheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="36dp"
-            android:layout_marginTop="16dp"
-            android:buttonTint="@color/black"
-            android:text="Estudiants"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/checkBoxAltaEmpleat" />
-
-        <CheckBox
-            android:id="@+id/checkBoxAltaBeca"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="40dp"
             android:layout_marginTop="12dp"
             android:buttonTint="@color/black"
-            android:text="Beques"
+            android:text="Informe"
             android:textColor="@color/black"
-            app:layout_constraintStart_toEndOf="@+id/checkBoxAltaEstudiant"
-            app:layout_constraintTop_toBottomOf="@+id/checkBoxAltaEmpeleat" />
-
-        <CheckBox
-            android:id="@+id/checkBoxAltaServei"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="80dp"
-            android:layout_marginTop="12dp"
-            android:buttonTint="@color/black"
-            android:text="Serveis"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toEndOf="@+id/checkBoxAltaBeca"
-            app:layout_constraintTop_toBottomOf="@+id/checkBoxAltaEscola" />
-
-        <CheckBox
-            android:id="@+id/checkBoxAltaSessio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="36dp"
-            android:layout_marginTop="20dp"
-            android:buttonTint="@color/black"
-            android:text="Sessions"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/checkBoxAltaSessio"
             app:layout_constraintTop_toBottomOf="@+id/checkBoxAltaBeca" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/buttonAltaNovaDepart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="120dp"

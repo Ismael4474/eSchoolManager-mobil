@@ -6,6 +6,8 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -28,7 +30,7 @@ public class PantallaPrincipal extends AppCompatActivity {
     public static String nom = "";
     public static String nomDepartament = "";
     Toolbar toolbar;
-    Button botoEmpleat,botoServei,botoBeca,botoDepartament,botoEstudiant,botoEscola,botoSessio;    @SuppressLint("RestrictedApi")
+    Button botoEmpleat,botoServei,botoBeca,botoDepartament,botoEstudiant,botoEscola,botoSessio,botoInforme;    @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +44,7 @@ public class PantallaPrincipal extends AppCompatActivity {
         botoEstudiant=findViewById(R.id.buttonEstudiant);
         botoEscola=findViewById(R.id.buttonEscola);
         botoSessio =findViewById(R.id.buttonSessio);
+        botoInforme=findViewById(R.id.buttonInforme);
         try {
             montarBotonera(getIntent().getStringExtra("permisos"),botoEmpleat,botoServei,botoBeca,botoDepartament,botoEstudiant,botoEscola,botoSessio);
         } catch (JSONException e) {
@@ -63,14 +66,42 @@ public class PantallaPrincipal extends AppCompatActivity {
                                 Button botoSessio) throws JSONException {
 
         JSONObject respostaServidorPermisos = new JSONObject(permisos);
-        botoEmpleat.setActivated( respostaServidorPermisos.getBoolean("empleat"));
-        botoEscola.setActivated(respostaServidorPermisos.getBoolean("escola"));
-        botoDepartament.setActivated(respostaServidorPermisos.getBoolean("departament"));
-        botoEstudiant.setActivated(respostaServidorPermisos.getBoolean("estudiant"));
-        botoBeca.setActivated(respostaServidorPermisos.getBoolean("beca"));
-        botoServei.setActivated(respostaServidorPermisos.getBoolean("servei"));
-        botoSessio.setActivated(respostaServidorPermisos.getBoolean("sessio"));
+        if (respostaServidorPermisos.getBoolean("empleat")){
+            botoEmpleat.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.purple_700)));
+        }
+        if (respostaServidorPermisos.getBoolean("escola")){
+            botoEscola.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.purple_700)));
+        }
 
+        if (respostaServidorPermisos.getBoolean("departament")){
+            botoDepartament.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.purple_700)));
+        }
+
+        if (respostaServidorPermisos.getBoolean("estudiant")){
+            botoEstudiant.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.purple_700)));
+        }
+
+        if (respostaServidorPermisos.getBoolean("beca")){
+            botoBeca.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.purple_700)));
+        }
+
+        if (respostaServidorPermisos.getBoolean("servei")){
+            botoServei.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.purple_700)));
+        }
+        if (respostaServidorPermisos.getBoolean("sessio")){
+            botoSessio.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.purple_700)));
+        }
+        if (respostaServidorPermisos.getBoolean("informe")){
+            botoInforme.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.purple_700)));
+        }
+        botoEmpleat.setClickable( respostaServidorPermisos.getBoolean("empleat"));
+        botoEscola.setClickable(respostaServidorPermisos.getBoolean("escola"));
+        botoDepartament.setClickable(respostaServidorPermisos.getBoolean("departament"));
+        botoEstudiant.setClickable(respostaServidorPermisos.getBoolean("estudiant"));
+        botoBeca.setClickable(respostaServidorPermisos.getBoolean("beca"));
+        botoServei.setClickable(respostaServidorPermisos.getBoolean("servei"));
+        botoSessio.setClickable(respostaServidorPermisos.getBoolean("sessio"));
+        botoInforme.setClickable((respostaServidorPermisos.getBoolean("informe")));
     }
 
     @Override
