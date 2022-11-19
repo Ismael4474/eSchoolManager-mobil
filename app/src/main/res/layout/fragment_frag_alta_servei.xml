@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".modelo.servei.FragAltaServei">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="-23dp">
+
+
+        <TextView
+            android:id="@+id/titolAltaServei"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:fontFamily="@font/alfa_slab_one"
+            android:shadowColor="#151313"
+            android:text="Alta Nou Servei"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextTextNomServei"
+            android:layout_width="186dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="48dp"
+            android:background="#E8E0E0"
+            android:drawableTint="@color/black"
+            android:ems="10"
+            android:hint="Nom"
+            android:inputType="textPersonName"
+            android:textColor="@color/black"
+            android:textColorHint="#BAB3B3"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titolAltaServei" />
+
+        <EditText
+            android:id="@+id/editTextTextDuradaServei"
+            android:layout_width="186dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="40dp"
+            android:background="#E8E0E0"
+            android:drawableTint="@color/black"
+            android:ems="10"
+            android:hint="Durada"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textColorHint="#BAB3B3"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextNomServei" />
+
+        <EditText
+            android:id="@+id/editTextTextCostServei"
+            android:layout_width="186dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="40dp"
+            android:background="#E8E0E0"
+            android:drawableTint="@color/black"
+            android:ems="10"
+            android:hint="Cost"
+            android:inputType="numberDecimal"
+            android:textColor="@color/black"
+            android:textColorHint="#BAB3B3"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextDuradaServei" />
+
+        <Button
+            android:id="@+id/buttonAltaNovaServei"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
+            android:text="Acceptar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextCostServei"
+            app:rippleColor="@color/purple_700" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

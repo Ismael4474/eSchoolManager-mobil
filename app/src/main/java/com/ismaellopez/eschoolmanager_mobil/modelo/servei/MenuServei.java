@@ -1,4 +1,4 @@
-package com.ismaellopez.eschoolmanager_mobil.modelo.departaments;
+package com.ismaellopez.eschoolmanager_mobil.modelo.servei;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,7 +24,7 @@ import org.json.JSONObject;
 
 import java.util.concurrent.ExecutionException;
 
-public class MenuDepartament extends AppCompatActivity {
+public class MenuServei extends AppCompatActivity {
 
     Toolbar toolbar;
     Button botonAlta,botonModi,botonBaixa, botonLlistar, botonTornar;
@@ -32,30 +32,29 @@ public class MenuDepartament extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_departament);
+        setContentView(R.layout.activity_menu_servei);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle("eSchoolManager");
         toolbar.setSubtitle(PantallaPrincipal.nomDepartament + " -> " + PantallaPrincipal.nom);
         Bundle datos = new Bundle();
-        botonAlta =findViewById(R.id.buttonAltaDepart);
-        botonModi = findViewById(R.id.buttonModiDepart);
-        botonBaixa = findViewById(R.id.buttonBaixaDepart);
-        botonLlistar = findViewById(R.id.buttonDepartLlistar);
-        botonTornar = findViewById(R.id.buttonDepartTornar);
-        datos.putString("titulo", "Gestió Departaments");
+        botonAlta =findViewById(R.id.buttonAltaServei);
+        botonModi = findViewById(R.id.buttonModiServei);
+        botonBaixa = findViewById(R.id.buttonBaixaServei);
+        botonLlistar = findViewById(R.id.buttonServeiLlistar);
+        botonTornar = findViewById(R.id.buttonServeiTornar);
+        datos.putString("titulo", "Gestió Serveis");
         TituloFragment tituloFragment = new TituloFragment();
         tituloFragment.setArguments(datos);
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.frameLayoutDepart, tituloFragment)
+                .add(R.id.frameLayoutServei, tituloFragment)
                 .commit();
-
 
         botonModi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                replaceFragment( new FragModiDepart());
+                replaceFragment( new FragModiServei());
             }
         });
 
@@ -63,14 +62,14 @@ public class MenuDepartament extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                replaceFragment( new FragAltaDepart());
+                replaceFragment( new FragAltaServei());
             }
         });
 
         botonBaixa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                replaceFragment( new FragBaixaDepart());
+                replaceFragment( new FragBaixaServei());
             }
         });
 
@@ -84,7 +83,7 @@ public class MenuDepartament extends AppCompatActivity {
         botonLlistar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                replaceFragment(new FragLlistaDepart());
+                replaceFragment(new FragLlistaServei());
             }
         });
 
@@ -93,7 +92,7 @@ public class MenuDepartament extends AppCompatActivity {
     private void replaceFragment( Fragment fragment){
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.frameLayoutDepart, fragment)
+                .replace(R.id.frameLayoutServei, fragment)
                 .commit();
     }
 
@@ -130,7 +129,7 @@ public class MenuDepartament extends AppCompatActivity {
             JSONObject jsonRespostaCrida = new JSONObject(respostaServidor);
             if (jsonRespostaCrida.getString("resposta") != null) {
                 if ("OK".equalsIgnoreCase(jsonRespostaCrida.getString("resposta"))) {
-                    Intent logout = new Intent(this,MainActivity.class);
+                    Intent logout = new Intent(this, MainActivity.class);
                     startActivity(logout);
                 }
             }

@@ -30,6 +30,7 @@ public class FragModiDepartResult extends Fragment {
     EditText editTextModiDepart;
     CheckBox empleatCheck,departCheck,escolaCheck,becaCheck,sessioCheck,estudiantCheck,serveiCheck,informeCheck;
     Button botoModiAceptar;
+    String codiDepartament;
 
     public FragModiDepartResult() {
         // Required empty public constructor
@@ -55,6 +56,7 @@ public class FragModiDepartResult extends Fragment {
                                     JSONObject respostaJsonDades = new JSONObject(respostaJson.getString("dades"));
                                     //rellenamos el editText con la respuesta del servidor
                                     editTextModiDepart.setText(respostaJsonDades.getString("nomDepartament"));
+                                    codiDepartament = respostaJsonDades.getString("codiDepartament");
                                     if (respostaJsonDades.getString("permisos") != null){
                                         //rellenamos los checkBox con la respuest del servidor
                                         JSONObject respostaJsonPermisos = new JSONObject(respostaJsonDades.getString("permisos"));
@@ -86,6 +88,8 @@ public class FragModiDepartResult extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_frag_modi_depart_result, container, false);
+
+
     }
 
 
@@ -101,7 +105,7 @@ public class FragModiDepartResult extends Fragment {
         estudiantCheck = view.findViewById(R.id.checkBoxModiEstudiant);
         serveiCheck = view.findViewById(R.id.checkBoxModiServeis);
         informeCheck = view.findViewById(R.id.checkBoxModiInforme);
-
+        botoModiAceptar = view.findViewById(R.id.buttonConfirmarModificacio);
         //ponemos el boton a la escucha
         botoModiAceptar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,9 +119,10 @@ public class FragModiDepartResult extends Fragment {
         //Creamos el objetos json que mandamos al servidor
         JSONObject json = new JSONObject();
         try {
-            json.put("crida","ALTA DEPARTAMENT" );
+            json.put("crida","MODI DEPARTAMENT" );
             json.put("codiSessio", PantallaPrincipal.codiSessio);
             JSONObject jsonDades = new JSONObject();
+            jsonDades.put("codiDepartament",codiDepartament);
             jsonDades.put("nomDepartament",editTextModiDepart.getText().toString());
             JSONObject jsonPermisos = new JSONObject();
             jsonPermisos.put("empleat", empleatCheck.isChecked());
@@ -140,18 +145,10 @@ public class FragModiDepartResult extends Fragment {
                     if ("OK".equalsIgnoreCase(respostaServidorJson.getString("resposta"))){
                         Toast.makeText(getActivity(),"Departament modificat correctament",Toast.LENGTH_LONG).show();
                         //reiniciamos todos los camps
-                        editTextModiDepart.setText("");
-                        editTextModiDepart.requestFocus();
-                        empleatCheck.setChecked(false);
-                        departCheck.setChecked(false);
-                        escolaCheck.setChecked(false);
-                        becaCheck.setChecked(false);
-                        sessioCheck.setChecked(false);
-                        estudiantCheck.setChecked(false);
-                        serveiCheck.setChecked(false);
-                        getActivity().onBackPressed();
+
                     }else{
                         Toast.makeText(getActivity(), respostaServidorJson.getString("missatge"), Toast.LENGTH_LONG).show();
+                        getActivity().onBackPressed();
                     }
                 }
             }

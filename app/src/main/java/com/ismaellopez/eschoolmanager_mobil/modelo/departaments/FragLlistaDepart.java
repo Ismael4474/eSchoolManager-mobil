@@ -51,7 +51,7 @@ public class FragLlistaDepart extends Fragment {
             JSONArray arrayDepartament= aconseguirLlista();
             if(arrayDepartament!=null) {
                 ArrayList<Departament> llistaDepartaments =montarLlista(arrayDepartament);
-                RecycleAdapter adapter = new RecycleAdapter(llistaDepartaments);
+                RecycleAdapterDepart adapter = new RecycleAdapterDepart(llistaDepartaments);
                 RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
                 recyclerView.setLayoutManager(layoutManager);
                 recyclerView.setItemAnimator(new DefaultItemAnimator());

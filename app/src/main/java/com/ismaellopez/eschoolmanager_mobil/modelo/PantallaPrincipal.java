@@ -17,6 +17,7 @@ import android.widget.Button;
 import com.ismaellopez.eschoolmanager_mobil.R;
 import com.ismaellopez.eschoolmanager_mobil.controlador.Connexio;
 import com.ismaellopez.eschoolmanager_mobil.modelo.departaments.MenuDepartament;
+import com.ismaellopez.eschoolmanager_mobil.modelo.servei.MenuServei;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -119,6 +120,9 @@ public class PantallaPrincipal extends AppCompatActivity {
             } catch (JSONException | ExecutionException | InterruptedException e) {
                 e.printStackTrace();
             }
+        }else if (opcio == R.id.configurar){
+            Intent configurar = new Intent(this,ConfiguracionPersonal.class);
+            startActivity(configurar);
         }
         return super.onOptionsItemSelected(item);
     }
@@ -144,5 +148,10 @@ public class PantallaPrincipal extends AppCompatActivity {
     public void accesMenuDepartament(View view){
         Intent menuDepartament= new Intent(this, MenuDepartament.class);
         startActivity(menuDepartament);
+    }
+    //Acces en menu per donar de alta/baixa/modificar serveis
+    public void accesMenuServeis(View view){
+        Intent menuServeis= new Intent(this, MenuServei.class);
+        startActivity(menuServeis);
     }
 }

@@ -49,25 +49,6 @@ public class FragModiDepart extends Fragment {
         // Inflate the layout for this fragment
         view =  inflater.inflate(R.layout.fragment_frag_modi_depart, container, false);
 
-        editTextCodiModi = view.findViewById(R.id.editTextModiDepart);
-        buttonModiBuscar = view.findViewById(R.id.buttonBaixaTrobar);
-
-        //colocamos el botón a la escucha
-        buttonModiBuscar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String resposataServidor = cercarDepartament(view);
-                if (resposataServidor != null){
-                    //Creamos el buble para pasar los datos al otro fragment
-                    Bundle bundle = new Bundle();
-                    bundle.putString("dadesResposta", resposataServidor);
-                    getParentFragmentManager().setFragmentResult("resposta",bundle);
-                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                    fragmentManager.beginTransaction().add(R.id.frameLayoutModiDepart, new FragModiDepartResult()).commit();
-
-                }
-            }
-        });
         return view;
     }
 
