@@ -44,7 +44,7 @@
         android:layout_width="78dp"
         android:layout_height="30dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
         android:text="Cognom:"
         android:textColor="@color/black"
         android:textSize="15dp"
@@ -80,7 +80,7 @@
         android:layout_width="115dp"
         android:layout_height="32dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:text="Data naixament:"
         android:textColor="@color/black"
         android:textSize="15dp"
@@ -104,7 +104,7 @@
         android:layout_width="70dp"
         android:layout_height="26dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="36dp"
         android:text="Telefon:"
         android:textColor="@color/black"
         android:textSize="15dp"
@@ -149,9 +149,10 @@
 
     <TextView
         android:id="@+id/textConfCodEmpleat"
-        android:layout_width="74dp"
-        android:layout_height="29dp"
+        android:layout_width="78dp"
+        android:layout_height="33dp"
         android:layout_marginTop="16dp"
+        android:background="#E8E0E0"
         android:text=""
         android:textColor="@color/black"
         android:textSize="15dp"
@@ -164,9 +165,11 @@
         android:id="@+id/checkBoxActiu"
         android:layout_width="97dp"
         android:layout_height="47dp"
-        android:layout_marginTop="408dp"
-        android:layout_marginEnd="52dp"
+        android:layout_marginTop="416dp"
+        android:layout_marginEnd="16dp"
+        android:buttonTint="@color/black"
         android:text="Actiu"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
@@ -177,6 +180,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
         android:ems="10"
+        android:background="#E8E0E0"
         android:inputType="textEmailAddress"
         android:textColor="@color/black"
         android:textSize="15dp"
@@ -187,17 +191,18 @@
 
     <EditText
         android:id="@+id/editTexConfNom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="175dp"
+        android:layout_height="38dp"
+        android:background="#E8E0E0"
         android:ems="10"
         android:inputType="textPersonName"
         android:text=""
         android:textColor="@color/black"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.057"
+        app:layout_constraintHorizontal_bias="0.137"
         app:layout_constraintStart_toEndOf="@+id/textConfTitulNom"
-        app:layout_constraintTop_toBottomOf="@+id/textConfTitulCod" />
+        app:layout_constraintTop_toBottomOf="@+id/textConfCodEmpleat" />
 
     <EditText
         android:id="@+id/editTexConfCognom"
@@ -207,6 +212,7 @@
         android:inputType="textPersonName"
         android:text=""
         android:textColor="@color/black"
+        android:background="#E8E0E0"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -214,23 +220,26 @@
         app:layout_constraintTop_toBottomOf="@+id/editTexConfNom" />
 
     <EditText
-        android:id="@+id/editTexConfDni"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/editTexAltaEmpleatDni"
+        android:layout_width="176dp"
+        android:layout_height="38dp"
+        android:background="#E8E0E0"
         android:ems="10"
         android:inputType="textPersonName"
         android:text=""
         android:textColor="@color/black"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.012"
+        app:layout_constraintHorizontal_bias="0.09"
         app:layout_constraintStart_toEndOf="@+id/textConfTitulDni"
         app:layout_constraintTop_toBottomOf="@+id/editTexConfCognom" />
 
     <EditText
         android:id="@+id/editTextDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="185dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="4dp"
+        android:background="#E8E0E0"
         android:ems="10"
         android:inputType="date"
         android:textColor="@color/black"
@@ -238,12 +247,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textConfTitulData"
-        app:layout_constraintTop_toBottomOf="@+id/editTexConfDni" />
+        app:layout_constraintTop_toBottomOf="@+id/editTexAltaEmpleatDni" />
 
     <EditText
-        android:id="@+id/editTextPostalAddress"
-        android:layout_width="301dp"
-        android:layout_height="42dp"
+        android:id="@+id/editTextAltaEmpleatPostalAddress"
+        android:layout_width="302dp"
+        android:layout_height="54dp"
+        android:background="#E8E0E0"
         android:ems="10"
         android:inputType="textPostalAddress"
         android:textColor="@color/black"
@@ -256,8 +266,9 @@
     <EditText
         android:id="@+id/editTextPhone"
         android:layout_width="168dp"
-        android:layout_height="44dp"
+        android:layout_height="34dp"
         android:layout_marginTop="12dp"
+        android:background="#E8E0E0"
         android:ems="10"
         android:inputType="phone"
         android:textColor="@color/black"
@@ -265,7 +276,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textConfTitulTelefon"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPostalAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextAltaEmpleatPostalAddress" />
 
     <EditText
         android:id="@+id/editTexConfCodDepart"
@@ -274,6 +285,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="112dp"
         android:ems="10"
+        android:background="#E8E0E0"
         android:inputType="textPersonName"
         android:text=""
         android:textColor="@color/black"
@@ -285,9 +297,10 @@
 
     <EditText
         android:id="@+id/editTexConfContra"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="173dp"
+        android:layout_height="36dp"
         android:layout_marginTop="8dp"
+        android:background="#E8E0E0"
         android:ems="10"
         android:inputType="textPersonName"
         android:text=""
@@ -305,6 +318,7 @@
         android:layout_marginStart="116dp"
         android:gravity="center"
         android:text="Aceptar"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTexConfContra"

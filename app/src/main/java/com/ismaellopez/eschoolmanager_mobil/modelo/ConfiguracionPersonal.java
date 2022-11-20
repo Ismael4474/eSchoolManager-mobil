@@ -43,9 +43,9 @@ public class ConfiguracionPersonal extends AppCompatActivity {
         toolbar.setSubtitle(PantallaPrincipal.nomDepartament + " -> " + PantallaPrincipal.nom);
         editTextNom = findViewById(R.id.editTexConfNom);
         editTextCognom = findViewById(R.id.editTexConfCognom);
-        editTextDni = findViewById(R.id.editTexConfDni);
+        editTextDni = findViewById(R.id.editTexAltaEmpleatDni);
         editTextData = findViewById(R.id.editTextDate);
-        editTextAdre = findViewById(R.id.editTextPostalAddress);
+        editTextAdre = findViewById(R.id.editTextAltaEmpleatPostalAddress);
         editTextTelef = findViewById(R.id.editTextPhone);
         editTextMail = findViewById(R.id.editTextEmailAddress);
         editTextCodiDepart = findViewById(R.id.editTexConfCodDepart);

@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".modelo.empleat.FragModiEmpleatResult">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="-23dp">
+
+
+        <TextView
+            android:id="@+id/titolModiEmpleat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/alfa_slab_one"
+            android:shadowColor="#151313"
+            android:text="Modificaió Empleat"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.579"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textConfTitulNom"
+            android:layout_width="76dp"
+            android:layout_height="23dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:text="Nom:"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titolModiEmpleat" />
+
+        <TextView
+            android:id="@+id/textConfTitulGognom"
+            android:layout_width="76dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:text="Cognom:"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textConfTitulNom" />
+
+        <TextView
+            android:id="@+id/textConfTitulDni"
+            android:layout_width="46dp"
+            android:layout_height="27dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="DNI:"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textConfTitulGognom" />
+
+        <TextView
+            android:id="@+id/textConfTitulData"
+            android:layout_width="115dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Data naixement:"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textConfTitulDni" />
+
+        <TextView
+            android:id="@+id/textConfTitulAdre"
+            android:layout_width="68dp"
+            android:layout_height="29dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:text="Adreça:"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textConfTitulData" />
+
+        <TextView
+            android:id="@+id/textConfTitulTelefon"
+            android:layout_width="70dp"
+            android:layout_height="26dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:text="Telefon:"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textConfTitulAdre" />
+
+
+        <TextView
+            android:id="@+id/textConfTitulMail"
+            android:layout_width="58dp"
+            android:layout_height="29dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:text="Mail:"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textConfTitulTelefon" />
+
+        <TextView
+            android:id="@+id/textConfTitulCodDepart"
+            android:layout_width="103dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Departament:"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textConfTitulMail" />
+
+        <TextView
+            android:id="@+id/textConfTitulCodiUsuari"
+            android:layout_width="94dp"
+            android:layout_height="31dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="4dp"
+            android:text="Codi empleat:"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textConfTitulUsuari" />
+
+        <TextView
+            android:id="@+id/textConfTitulUsuari"
+            android:layout_width="91dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:text="Usuari:"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textConfTitulCodDepart" />
+
+        <EditText
+            android:id="@+id/editTextAltaEmpleatEmailAddress"
+            android:layout_width="190dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="4dp"
+            android:background="#E8E0E0"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintStart_toEndOf="@+id/textConfTitulMail"
+            app:layout_constraintTop_toBottomOf="@+id/editTextAltaEmpleatPhone" />
+
+        <EditText
+            android:id="@+id/editTexAltaEmpleatNom"
+            android:layout_width="181dp"
+            android:layout_height="23dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:background="#E8E0E0"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintStart_toEndOf="@+id/textConfTitulNom"
+            app:layout_constraintTop_toBottomOf="@+id/titolModiEmpleat" />
+
+        <EditText
+            android:id="@+id/editTexAltaEmpleatCognom"
+            android:layout_width="300dp"
+            android:layout_height="29dp"
+            android:layout_marginTop="4dp"
+            android:background="#E8E0E0"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintStart_toEndOf="@+id/textConfTitulGognom"
+            app:layout_constraintTop_toBottomOf="@+id/editTexAltaEmpleatNom" />
+
+        <EditText
+            android:id="@+id/editTexAltaEmpleatDni"
+            android:layout_width="172dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:background="#E8E0E0"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintStart_toEndOf="@+id/textConfTitulDni"
+            app:layout_constraintTop_toBottomOf="@+id/editTexAltaEmpleatCognom" />
+
+        <EditText
+            android:id="@+id/editTextAltaEmpleatDate"
+            android:layout_width="104dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="8dp"
+            android:background="#E8E0E0"
+            android:ems="10"
+            android:inputType="date"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintStart_toEndOf="@+id/textConfTitulData"
+            app:layout_constraintTop_toBottomOf="@+id/editTexAltaEmpleatDni" />
+
+        <EditText
+            android:id="@+id/editTextAltaEmpleatPostalAddress"
+            android:layout_width="320dp"
+            android:layout_height="29dp"
+            android:layout_marginTop="8dp"
+            android:background="#E8E0E0"
+            android:ems="10"
+            android:inputType="textPostalAddress"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintStart_toEndOf="@+id/textConfTitulAdre"
+            app:layout_constraintTop_toBottomOf="@+id/editTextAltaEmpleatDate" />
+
+        <EditText
+            android:id="@+id/editTextAltaEmpleatPhone"
+            android:layout_width="163dp"
+            android:layout_height="29dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:background="#E8E0E0"
+            android:ems="10"
+            android:inputType="phone"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintStart_toEndOf="@+id/textConfTitulTelefon"
+            app:layout_constraintTop_toBottomOf="@+id/editTextAltaEmpleatPostalAddress" />
+
+
+        <EditText
+            android:id="@+id/editTexAltaEmpleatCodiEmple"
+            android:layout_width="167dp"
+            android:layout_height="26dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:background="#E8E0E0"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintStart_toEndOf="@+id/textConfTitulCodiUsuari"
+            app:layout_constraintTop_toBottomOf="@+id/editTexAltaEmpleatUsuari" />
+
+        <EditText
+            android:id="@+id/editTexAltaEmpleatUsuari"
+            android:layout_width="168dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="4dp"
+            android:background="#E8E0E0"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintStart_toEndOf="@+id/textConfTitulUsuari"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerAltaEmpleat" />
+
+        <Button
+            android:id="@+id/buttonAltaEmpleatAceptar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="Aceptar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.938"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextAltaEmpleatPostalAddress" />
+
+        <Spinner
+            android:id="@+id/spinnerAltaEmpleat"
+            android:layout_width="172dp"
+            android:layout_height="26dp"
+            android:layout_marginTop="8dp"
+            android:background="#E8E0E0"
+            android:dropDownSelector="@color/white"
+            android:scrollbarThumbHorizontal="@color/black"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/textConfTitulCodDepart"
+            app:layout_constraintTop_toBottomOf="@+id/editTextAltaEmpleatEmailAddress" />
+
+        <ImageButton
+            android:id="@+id/imageButtonDateAltaEmpl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@color/white"
+            android:drawableTint="@color/white"
+            android:src="@drawable/ic_baseline_calendar_month_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.032"
+            app:layout_constraintStart_toEndOf="@+id/editTextAltaEmpleatDate"
+            app:layout_constraintTop_toBottomOf="@+id/editTexAltaEmpleatCognom" />
+
+        <CheckBox
+            android:id="@+id/CheckBoxActiu"
+            android:layout_width="87dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="52dp"
+            android:buttonTint="@color/black"
+            android:text="Actiu"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/editTexAltaEmpleatCodiEmple"
+            app:layout_constraintTop_toBottomOf="@+id/buttonAltaEmpleatAceptar" />
+
+        <DatePicker
+            android:id="@+id/dataPickerAltaEmpl"
+            android:layout_width="350dp"
+            android:layout_height="450dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/black"
+            android:backgroundTint="#D6D6D6"
+            android:calendarTextColor="@color/black"
+            android:headerBackground="@color/purple_500"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.737"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/titolModiEmpleat"></DatePicker>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</FrameLayout>

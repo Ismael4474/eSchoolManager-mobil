@@ -46,10 +46,10 @@ public class RecycleAdapterServei extends RecyclerView.Adapter<RecycleAdapterSer
         String nomServei = llistaServeis.get(position).getNom();
         int duradaServei = llistaServeis.get(position).getDurada();;
         double costServei = llistaServeis.get(position).getCost();
-        holder.textCodiServei.setText(String.valueOf(codiServei));
+        holder.textCodiServei.setText("Codi-> "+String.valueOf(codiServei));
         holder.textNomServei.setText(nomServei);
-        holder.textDurada.setText(String.valueOf(duradaServei));
-        holder.textCost.setText(String.valueOf(costServei));
+        holder.textDurada.setText("Durada-> " + String.valueOf(duradaServei)+ " hores");
+        holder.textCost.setText("Cost-> " +String.valueOf(costServei)+ " €");
 
     }
 

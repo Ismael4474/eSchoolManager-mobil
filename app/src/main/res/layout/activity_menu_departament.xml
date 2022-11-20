@@ -20,52 +20,53 @@
         android:id="@+id/buttonBaixaDepart"
         android:layout_width="71dp"
         android:layout_height="48dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="64dp"
         android:text="Baixa"
         android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
-        app:layout_constraintStart_toEndOf="@id/buttonModiDepart" />
+        app:layout_constraintHorizontal_bias="0.224"
+        app:layout_constraintStart_toEndOf="@id/buttonModiDepart"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayoutDepart" />
 
     <Button
         android:id="@+id/buttonAltaDepart"
         android:layout_width="64dp"
         android:layout_height="48dp"
         android:layout_marginStart="28dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginTop="16dp"
         android:text="Alta"
+
         android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonModiDepart"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayoutDepart" />
 
     <Button
         android:id="@+id/buttonDepartLlistar"
         android:layout_width="68dp"
         android:layout_height="48dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginTop="16dp"
         android:text="Llistar"
         android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.824"
-        app:layout_constraintStart_toEndOf="@+id/buttonBaixaDepart" />
+        app:layout_constraintHorizontal_bias="0.479"
+        app:layout_constraintStart_toEndOf="@+id/buttonBaixaDepart"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayoutDepart" />
 
     <Button
         android:id="@+id/buttonModiDepart"
         android:layout_width="74dp"
         android:layout_height="48dp"
         android:layout_marginStart="48dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginTop="16dp"
         android:text="Modificacio"
         android:textSize="8sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.176"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.252"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayoutDepart" />
 
     <FrameLayout
         android:id="@+id/frameLayoutDepart"
@@ -98,6 +99,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonBaixaDepart"
-        app:layout_constraintVertical_bias="0.111" />
+        app:layout_constraintVertical_bias="0.8" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,99 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".modelo.empleat.MenuEmpleat">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/purple_500"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="2dp"></androidx.appcompat.widget.Toolbar>
+
+    <Button
+        android:id="@+id/buttonBaixaEmpleat"
+        android:layout_width="71dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Baixa"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintStart_toEndOf="@id/buttonModiEmpleat"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayoutEmpleat" />
+
+    <Button
+        android:id="@+id/buttonAltaEmpleat"
+        android:layout_width="64dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        android:text="Alta"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toStartOf="@+id/buttonModiEmpleat"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayoutEmpleat" />
+
+    <Button
+        android:id="@+id/buttonEmpleatLlistar"
+        android:layout_width="88dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:text="Llistar"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.258"
+        app:layout_constraintStart_toEndOf="@+id/buttonBaixaEmpleat"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayoutEmpleat" />
+
+    <Button
+        android:id="@+id/buttonModiEmpleat"
+        android:layout_width="74dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="16dp"
+        android:text="Modificacio"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.228"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayoutEmpleat" />
+
+    <FrameLayout
+        android:id="@+id/frameLayoutEmpleat"
+        android:layout_width="411dp"
+        android:layout_height="535dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+    </FrameLayout>
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/buttonModiEmpleat"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayoutEmpleat"
+        app:layout_constraintVertical_bias="0.179"
+        tools:layout_editor_absoluteX="0dp"></View>
+
+    <Button
+        android:id="@+id/buttonEmpleatTornar"
+        android:layout_width="197dp"
+        android:layout_height="48dp"
+        android:text="Tornar"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonBaixaEmpleat"
+        app:layout_constraintVertical_bias="0.937" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.ismaellopez.eschoolmanager_mobil.modelo.servei;
+package com.ismaellopez.eschoolmanager_mobil.modelo.empleat;
 
 import android.os.Bundle;
 
@@ -15,8 +15,8 @@ import android.widget.Toast;
 import com.ismaellopez.eschoolmanager_mobil.R;
 import com.ismaellopez.eschoolmanager_mobil.controlador.Connexio;
 import com.ismaellopez.eschoolmanager_mobil.modelo.PantallaPrincipal;
-import com.ismaellopez.eschoolmanager_mobil.modelo.departaments.Departament;
-import com.ismaellopez.eschoolmanager_mobil.modelo.departaments.RecycleAdapterDepart;
+import com.ismaellopez.eschoolmanager_mobil.modelo.servei.RecycleAdapterServei;
+import com.ismaellopez.eschoolmanager_mobil.modelo.servei.Servei;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -27,14 +27,15 @@ import java.util.Iterator;
 import java.util.concurrent.ExecutionException;
 
 
-public class FragLlistaServei extends Fragment {
+public class FragLlistaEmpleat extends Fragment {
 
     View view;
     private RecyclerView recyclerView;
 
-    public FragLlistaServei() {
+    public FragLlistaEmpleat() {
         // Required empty public constructor
     }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,13 +47,13 @@ public class FragLlistaServei extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view =  inflater.inflate(R.layout.fragment_frag_llista_servei, container, false);
-        recyclerView = view.findViewById(R.id.recicleServei);
+        view = inflater.inflate(R.layout.fragment_frag_llista_empleat, container, false);
+        recyclerView = view.findViewById(R.id.recicleEmpleat);
         try {
-            JSONArray arrayServei= aconseguirLlista();
-            if(arrayServei!=null) {
-                ArrayList<Servei> llistaServeis =montarLlista(arrayServei);
-                RecycleAdapterServei adapter = new RecycleAdapterServei(llistaServeis);
+            JSONArray arrayEmpleat= aconseguirLlista();
+            if(arrayEmpleat!=null) {
+                ArrayList<Empleat> llistaEmpleats =montarLlista(arrayEmpleat);
+                RecycleAdapterEmpleat adapter = new RecycleAdapterEmpleat(llistaEmpleats);
                 RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
                 recyclerView.setLayoutManager(layoutManager);
                 recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -70,11 +71,11 @@ public class FragLlistaServei extends Fragment {
         return view;
     }
 
-    //metodo per aconseguir la llista de departaments del servidor
+    //metodo per aconseguir la llista de empleats del servidor
     public JSONArray aconseguirLlista() throws JSONException, ExecutionException, InterruptedException {
-        JSONArray arrayServeis = new JSONArray();
+        JSONArray arrayEmpleats = new JSONArray();
         JSONObject json = new JSONObject();
-        json.put("crida","LLISTA SERVEIS" );
+        json.put("crida","LLISTA EMPLEATS" );
         json.put("codiSessio", PantallaPrincipal.codiSessio);
         JSONObject jsonDades = new JSONObject();
         jsonDades.put("ordre","");
@@ -92,7 +93,7 @@ public class FragLlistaServei extends Fragment {
                         Iterator<String> x = jsonDadesResposta.keys();
                         while (x.hasNext()){
                             String key= (String)x.next();
-                            arrayServeis.put(jsonDadesResposta.get(key));
+                            arrayEmpleats.put(jsonDadesResposta.get(key));
                         }
                     }
                 }else{
@@ -100,20 +101,21 @@ public class FragLlistaServei extends Fragment {
                 }
             }
         }
-        return arrayServeis;
+        return arrayEmpleats;
     }
-    //metode per montar una llista de departaments
-    public ArrayList<Servei> montarLlista(JSONArray arrayServeis) throws JSONException {
-        ArrayList<Servei> llistaServeis = new ArrayList<>();
-        for (int i=0;i<arrayServeis.length();i++){
-            JSONObject jsonServeis = arrayServeis.getJSONObject(i);
-            Servei servei = new Servei();
-            servei.setCodi(jsonServeis.getInt("codiServei"));
-            servei.setNom(jsonServeis.getString("nomServei"));
-            servei.setCost(jsonServeis.getDouble("cost"));
-            servei.setDurada(jsonServeis.getInt("durada"));
-            llistaServeis.add(servei);
+    //metode per montar una llista de empleats
+    public ArrayList<Empleat> montarLlista(JSONArray arrayEmpleats) throws JSONException {
+        ArrayList<Empleat> llistaEmpleats = new ArrayList<>();
+        for (int i=0;i<arrayEmpleats.length();i++){
+            JSONObject jsonEmpleats = arrayEmpleats.getJSONObject(i);
+            Empleat empleat = new Empleat();
+            empleat.setCodiEmpleat(jsonEmpleats.getInt("codiEmpleat"));
+            empleat.setNom(jsonEmpleats.getString("nomEmpleat"));
+            empleat.setCognoms(jsonEmpleats.getString("cognomsEmpleat"));
+            empleat.setCodiDepartament(jsonEmpleats.getInt("codiDepartament"));
+            empleat.setNomDepartament(jsonEmpleats.getString("nomDepartament"));
+            llistaEmpleats.add(empleat);
         }
-        return llistaServeis;
+        return llistaEmpleats;
     }
 }

@@ -17,8 +17,9 @@
         android:theme="@style/Theme.ESchoolManagermobil"
         tools:targetApi="31">
         <activity
-            android:name=".MenuEmpleat"
-            android:exported="false">
+            android:name=".modelo.empleat.MenuEmpleat"
+            android:exported="false"
+            android:theme="@style/Theme.Design.NoActionBar">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

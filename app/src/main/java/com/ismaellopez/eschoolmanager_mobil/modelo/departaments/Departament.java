@@ -1,5 +1,7 @@
 package com.ismaellopez.eschoolmanager_mobil.modelo.departaments;
 
+import androidx.annotation.NonNull;
+
 public class Departament {
 
     private int codiDepartament;
@@ -19,5 +21,11 @@ public class Departament {
 
     public void setNomDepartament(String nomDepartament) {
         this.nomDepartament = nomDepartament;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return nomDepartament;
     }
 }

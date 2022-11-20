@@ -17,6 +17,7 @@ import android.widget.Button;
 import com.ismaellopez.eschoolmanager_mobil.R;
 import com.ismaellopez.eschoolmanager_mobil.controlador.Connexio;
 import com.ismaellopez.eschoolmanager_mobil.modelo.departaments.MenuDepartament;
+import com.ismaellopez.eschoolmanager_mobil.modelo.empleat.MenuEmpleat;
 import com.ismaellopez.eschoolmanager_mobil.modelo.servei.MenuServei;
 
 import org.json.JSONException;
@@ -154,4 +155,10 @@ public class PantallaPrincipal extends AppCompatActivity {
         Intent menuServeis= new Intent(this, MenuServei.class);
         startActivity(menuServeis);
     }
+    //Acces en menu per donar de alta/baixa/modificar Empleat
+    public void accesMenuEmpleats(View view){
+        Intent menuEmpleat= new Intent(this, MenuEmpleat.class);
+        startActivity(menuEmpleat);
+    }
+
 }

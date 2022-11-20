@@ -19,52 +19,52 @@
         android:id="@+id/buttonBaixaServei"
         android:layout_width="71dp"
         android:layout_height="48dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="64dp"
         android:text="Baixa"
         android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
-        app:layout_constraintStart_toEndOf="@id/buttonModiServei" />
+        app:layout_constraintHorizontal_bias="0.183"
+        app:layout_constraintStart_toEndOf="@id/buttonModiServei"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayoutServei" />
 
     <Button
         android:id="@+id/buttonAltaServei"
         android:layout_width="64dp"
         android:layout_height="48dp"
         android:layout_marginStart="28dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginTop="16dp"
         android:text="Alta"
         android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonModiServei"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayoutServei" />
 
     <Button
         android:id="@+id/buttonServeiLlistar"
         android:layout_width="88dp"
         android:layout_height="48dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginTop="16dp"
         android:text="Llistar"
         android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.824"
-        app:layout_constraintStart_toEndOf="@+id/buttonBaixaServei" />
+        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintStart_toEndOf="@+id/buttonBaixaServei"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayoutServei" />
 
     <Button
         android:id="@+id/buttonModiServei"
         android:layout_width="74dp"
         android:layout_height="48dp"
         android:layout_marginStart="48dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginTop="16dp"
         android:text="Modificacio"
         android:textSize="8sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.176"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.245"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayoutServei" />
 
     <FrameLayout
         android:id="@+id/frameLayoutServei"
@@ -97,5 +97,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonBaixaServei"
-        app:layout_constraintVertical_bias="0.111" />
+        app:layout_constraintVertical_bias="0.937" />
 </androidx.constraintlayout.widget.ConstraintLayout>

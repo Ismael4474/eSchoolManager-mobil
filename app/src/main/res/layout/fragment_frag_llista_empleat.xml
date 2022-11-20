@@ -4,35 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".modelo.servei.FragLlistaServei">
+    tools:context=".modelo.empleat.FragLlistaEmpleat">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/titolLlistatServei"
+            android:id="@+id/titolLlistatEmpleat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/alfa_slab_one"
             android:shadowColor="#151313"
-            android:text="Lllistats Serveis"
+            android:text="Lllistats Empleats"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recicleServei"
+            android:id="@+id/recicleEmpleat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            app:layout_constraintTop_toBottomOf="@+id/titolLlistatServei"
+            app:layout_constraintTop_toBottomOf="@+id/titolLlistatEmpleat"
             tools:layout_editor_absoluteX="0dp" />
 
 
