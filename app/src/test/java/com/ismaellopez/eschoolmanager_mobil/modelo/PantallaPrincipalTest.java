@@ -7,9 +7,7 @@ import android.os.Bundle;
 import android.provider.SyncStateContract;
 import android.widget.Button;
 
-import androidx.appcompat.widget.ThemedSpinnerAdapter;
 
-import com.ismaellopez.eschoolmanager_mobil.R;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,7 +29,8 @@ public class PantallaPrincipalTest {
 
     @Test
     public void nomDepartament(){
-        pantallaPrincipal.onCreate(new Bundle());
+          pantallaPrincipal.onCreate(new Bundle());
+
     }
 
 }

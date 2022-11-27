@@ -48,10 +48,9 @@ public class ConfiguracionPersonal extends AppCompatActivity {
         editTextAdre = findViewById(R.id.editTextAltaEmpleatPostalAddress);
         editTextTelef = findViewById(R.id.editTextPhone);
         editTextMail = findViewById(R.id.editTextEmailAddress);
-        editTextCodiDepart = findViewById(R.id.editTexConfCodDepart);
+
         editTextContra = findViewById(R.id.editTexConfContra);
-        textCodiEmpleat = findViewById(R.id.textConfCodEmpleat);
-        checkBoxActiu = findViewById(R.id.checkBoxActiu);
+
         botoCancelar = findViewById(R.id.buttonConfCancelar);
         botoAceptar = findViewById(R.id.buttonConfAceptar);
 

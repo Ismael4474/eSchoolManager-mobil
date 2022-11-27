@@ -18,6 +18,8 @@ import com.ismaellopez.eschoolmanager_mobil.R;
 import com.ismaellopez.eschoolmanager_mobil.controlador.Connexio;
 import com.ismaellopez.eschoolmanager_mobil.modelo.departaments.MenuDepartament;
 import com.ismaellopez.eschoolmanager_mobil.modelo.empleat.MenuEmpleat;
+import com.ismaellopez.eschoolmanager_mobil.modelo.escola.ModiEscola;
+import com.ismaellopez.eschoolmanager_mobil.modelo.estudiant.MenuEstudiant;
 import com.ismaellopez.eschoolmanager_mobil.modelo.servei.MenuServei;
 
 import org.json.JSONException;
@@ -161,4 +163,15 @@ public class PantallaPrincipal extends AppCompatActivity {
         startActivity(menuEmpleat);
     }
 
+    //Acces en menu per donar de alta/baixa/modificar Empleat
+    public void accesEscola(View view){
+        Intent escola= new Intent(this, ModiEscola.class);
+        startActivity(escola);
+    }
+
+    //Acces en menu per donar de alta/baixa/modificar Estudiant
+    public void accesEstudiant(View view){
+        Intent estudiant= new Intent(this, MenuEstudiant.class);
+        startActivity(estudiant);
+    }
 }

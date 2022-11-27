@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".modelo.empleat.FragModiEmpleat">
+    tools:context=".modelo.estudiant.FragModiEstudiant">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -14,36 +14,37 @@
 
 
         <TextView
-            android:id="@+id/titolModiEmpleat"
+            android:id="@+id/titolModiEstudiant"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:fontFamily="@font/alfa_slab_one"
             android:shadowColor="#151313"
-            android:text="Modificació Empleat"
+            android:text="Modificació Estudiant"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textViewInfoModiEmpleat"
+            android:id="@+id/textViewInfoModiEstudiant"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:gravity="center"
-            android:text="Introdueix el codi del empleat que vols modificar"
+            android:text="Introdueix el codi del estudiant que vols modificar"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/titolModiEmpleat" />
+            app:layout_constraintTop_toBottomOf="@+id/titolModiEstudiant" />
 
         <EditText
-            android:id="@+id/editTextModiEmpleat"
+            android:id="@+id/editTextModiEstudiant"
             android:layout_width="131dp"
             android:layout_height="42dp"
             android:layout_marginTop="8dp"
@@ -54,17 +55,17 @@
             android:textColor="#070707"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewInfoModiEmpleat" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewInfoModiEstudiant" />
 
         <Button
-            android:id="@+id/buttonBaixaTrobarEmpleat"
+            android:id="@+id/buttonBaixaTrobarEstudiant"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="Cercar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextModiEmpleat" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextModiEstudiant" />
 
         <View
             android:id="@+id/view"
@@ -72,17 +73,17 @@
             android:layout_height="1dp"
             android:layout_marginTop="4dp"
             android:background="@color/black"
-            app:layout_constraintTop_toBottomOf="@+id/buttonBaixaTrobarEmpleat"
+            app:layout_constraintTop_toBottomOf="@+id/buttonBaixaTrobarEstudiant"
             tools:layout_editor_absoluteX="0dp"></View>
 
         <FrameLayout
-            android:id="@+id/frameLayoutModiEmpleat"
+            android:id="@+id/frameLayoutModiEstudiant"
             android:layout_width="399dp"
             android:layout_height="560dp"
             android:layout_marginTop="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonBaixaTrobarEmpleat">
+            app:layout_constraintTop_toBottomOf="@+id/buttonBaixaTrobarEstudiant">
 
         </FrameLayout>
 

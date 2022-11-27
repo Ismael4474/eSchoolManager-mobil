@@ -1,4 +1,4 @@
-package com.ismaellopez.eschoolmanager_mobil.modelo.empleat;
+package com.ismaellopez.eschoolmanager_mobil.modelo.estudiant;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
@@ -28,31 +28,26 @@ import com.ismaellopez.eschoolmanager_mobil.modelo.departaments.Departament;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.concurrent.ExecutionException;
 
 
-public class FragModiEmpleatResult extends Fragment {
+public class FragModiEstudiantResult extends Fragment {
 
-    ArrayList<Departament> llistaDepartaments ;
     View view;
-    EditText editTextNom,editTextCognom,editTextDni,editTextData,editTextAdre,editTextTelef,editTextMail,editTextUsuari,editTextCodiEmpleat;
-    Spinner spinnerNomDepartament;
+    EditText editTextNom,editTextCognom,editTextDni,editTextData,editTextAdre,editTextTelef,editTextMail,editTextCodiEstudiant;
     Button botoAceptar;
     ImageButton botonFecha;
-    DatePicker dataPickerAltaEmpl;
-    CheckBox checkBoxActiu;
-    FragAltaEmpleat fragAlta = new FragAltaEmpleat();
-
-    public FragModiEmpleatResult() {
+    DatePicker dataPickerModiEstudiant;
+    CheckBox checkBoxRegsitrat;
+    public FragModiEstudiantResult() {
         // Required empty public constructor
     }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //recuperamos la respuesta que le hemos apsado en el otro fragment
         getParentFragmentManager().setFragmentResultListener("resposta", this, new FragmentResultListener() {
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle bundle) {
@@ -66,21 +61,17 @@ public class FragModiEmpleatResult extends Fragment {
                             if ("OK".equalsIgnoreCase(respostaJson.getString("resposta"))) {
                                 if (respostaJson.getString("dades")!= null) {
 
-                                    llistaDepartaments = fragAlta.omplirSpinnerDepartaments();
-                                    ArrayAdapter<Departament> adapter = new ArrayAdapter<Departament>(getContext(), androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,llistaDepartaments);
-                                    spinnerNomDepartament.setAdapter(adapter);
-                                     JSONObject respostaJsonDades = new JSONObject(respostaJson.getString("dades"));
+                                    JSONObject respostaJsonDades = new JSONObject(respostaJson.getString("dades"));
                                     //rellenamos el editText con la respuesta del servidor
-                                    editTextNom.setText(respostaJsonDades.getString("nom"));
+                                    editTextNom.setText(respostaJsonDades.getString("nomEstudiant"));
                                     editTextCognom.setText(respostaJsonDades.getString("cognoms"));
                                     editTextDni.setText(respostaJsonDades.getString("dni"));
                                     editTextData.setText(respostaJsonDades.getString("dataNaixement"));
                                     editTextAdre.setText(respostaJsonDades.getString("adreca"));
                                     editTextTelef.setText(respostaJsonDades.getString("telefon"));
                                     editTextMail.setText(respostaJsonDades.getString("email"));
-                                    editTextUsuari.setText(respostaJsonDades.getString("usuari"));
-                                    editTextCodiEmpleat.setText(String.valueOf(respostaJsonDades.getInt("codiEmpleat")));
-                                    checkBoxActiu.setChecked(respostaJsonDades.getBoolean("actiu"));
+                                    editTextCodiEstudiant.setText(String.valueOf(respostaJsonDades.getInt("codiEstudiant")));
+                                    checkBoxRegsitrat.setChecked(respostaJsonDades.getBoolean("registrat"));
                                 }
                             }else{
                                 Toast.makeText(getActivity(), respostaJson.getString("missatge"), Toast.LENGTH_LONG).show();
@@ -88,10 +79,6 @@ public class FragModiEmpleatResult extends Fragment {
                             }
                         }
                     } catch (JSONException e) {
-                        e.printStackTrace();
-                    } catch (ExecutionException e) {
-                        e.printStackTrace();
-                    } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
@@ -103,26 +90,24 @@ public class FragModiEmpleatResult extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_frag_modi_empleat_result, container, false);
+        return inflater.inflate(R.layout.fragment_frag_modi_estudiant_result, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        editTextNom = view.findViewById(R.id.editTexAltaEmpleatNom);
-        editTextCognom = view.findViewById(R.id.editTexAltaEmpleatCognom);
-        editTextDni = view.findViewById(R.id.editTexAltaEmpleatDni);
-        editTextData = view.findViewById(R.id.editTextAltaEmpleatDate);
-        editTextAdre = view.findViewById(R.id.editTextAltaEmpleatPostalAddress);
-        editTextTelef = view.findViewById(R.id.editTextAltaEmpleatPhone);
-        editTextMail = view.findViewById(R.id.editTextAltaEmpleatEmailAddress);
-        spinnerNomDepartament=view.findViewById(R.id.spinnerAltaEmpleat);
-        editTextCodiEmpleat = view.findViewById(R.id.editTexAltaEmpleatCodiEmple);
-        checkBoxActiu = view.findViewById(R.id.CheckBoxActiu);
-        editTextUsuari= view.findViewById(R.id.editTexAltaEmpleatUsuari);
-        botoAceptar = view.findViewById(R.id.buttonAltaEmpleatAceptar);
-        dataPickerAltaEmpl = view.findViewById(R.id.dataPickerAltaEmpl);
-        botonFecha = view.findViewById(R.id.imageButtonDateAltaEmpl);
+        editTextNom = view.findViewById(R.id.editTextModiEstudiantNom);
+        editTextCognom = view.findViewById(R.id.editTextModiEstudiantCognom);
+        editTextDni = view.findViewById(R.id.editTextModiEstudiantDni);
+        editTextData = view.findViewById(R.id.editTextModiEstudiantDataNa);
+        editTextAdre = view.findViewById(R.id.editTextModiEstudiantAdreca);
+        editTextTelef = view.findViewById(R.id.editTextModiEstudiantTelefon);
+        editTextMail = view.findViewById(R.id.editTextModiEstudiantEmail);
+        editTextCodiEstudiant = view.findViewById(R.id.editTextModiEstudiantCodi);
+        checkBoxRegsitrat = view.findViewById(R.id.checkBoxRegistrat);
+        botoAceptar = view.findViewById(R.id.buttonModiEstudiantAceptar);
+        dataPickerModiEstudiant = view.findViewById(R.id.dataPickerModiEstudiant);
+        botonFecha = view.findViewById(R.id.imageButtonDateModiEstudiant);
         botonFecha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -146,30 +131,27 @@ public class FragModiEmpleatResult extends Fragment {
         botoAceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                modificarEmpleat(view);
+                modificarEstudiant(view);
             }
         });
     }
 
-    public void modificarEmpleat(View view){
+    public void modificarEstudiant(View view){
         //Creamos el objetos json que mandamos al servidor
         JSONObject json = new JSONObject();
         try {
-            json.put("crida","MODI EMPLEAT" );
+            json.put("crida","MODI ESTUDIANT" );
             json.put("codiSessio", PantallaPrincipal.codiSessio);
             JSONObject jsonDades = new JSONObject();
-            jsonDades.put("codiEmpleat", editTextCodiEmpleat.getText().toString());
-            jsonDades.put("nom",editTextNom.getText().toString());
+            jsonDades.put("codiEstudiant", editTextCodiEstudiant.getText().toString());
+            jsonDades.put("nomEstudiant",editTextNom.getText().toString());
             jsonDades.put("cognoms",editTextCognom.getText().toString());
             jsonDades.put("dni",editTextDni.getText().toString());
             jsonDades.put("dataNaixement",(editTextData.getText().toString()));
             jsonDades.put("adreca",editTextAdre.getText().toString());
             jsonDades.put("telefon",editTextTelef.getText().toString());
             jsonDades.put("email",editTextMail.getText().toString());
-            jsonDades.put("codiDepartament",fragAlta.calcularCodiDepartament(spinnerNomDepartament.getSelectedItem().toString()));
-            jsonDades.put("usuari",editTextUsuari.getText().toString());
-            jsonDades.put("contrasenya","");
-            jsonDades.put("actiu",checkBoxActiu.isChecked());
+            jsonDades.put("registrat",checkBoxRegsitrat.isChecked());
             json.put("dades",jsonDades);
             //Iniciamos la conexión al servidor
             Connexio connexio = new Connexio();
@@ -179,7 +161,7 @@ public class FragModiEmpleatResult extends Fragment {
                 JSONObject respostaServidorJson = new JSONObject(respuestaServidor);
                 if (respostaServidorJson.getString("resposta") != null) {
                     if ("OK".equalsIgnoreCase(respostaServidorJson.getString("resposta"))){
-                        Toast.makeText(getActivity(),"Empleat modificat correctament",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(),"Estudiant modificat correctament",Toast.LENGTH_LONG).show();
                         //reiniciamos todos los camps
 
                     }else{

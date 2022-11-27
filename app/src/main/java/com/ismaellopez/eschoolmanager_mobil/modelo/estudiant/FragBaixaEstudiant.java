@@ -1,4 +1,4 @@
-package com.ismaellopez.eschoolmanager_mobil.modelo.servei;
+package com.ismaellopez.eschoolmanager_mobil.modelo.estudiant;
 
 import android.os.Bundle;
 
@@ -21,16 +21,15 @@ import org.json.JSONObject;
 import java.util.concurrent.ExecutionException;
 
 
-public class FragAltaServei extends Fragment {
+public class FragBaixaEstudiant extends Fragment {
 
     View view;
-    EditText editTextNom,editTextDurada,editTextCost;
-    Button botoAceptar;
+    EditText editTextCodiBaixa;
+    Button buttonAceptarBaixaEstudiant;
 
-    public FragAltaServei() {
+    public FragBaixaEstudiant() {
         // Required empty public constructor
     }
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,46 +41,36 @@ public class FragAltaServei extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_frag_alta_servei, container, false);
-        editTextNom = view.findViewById(R.id.editTextTextNomServei);
-        editTextDurada = view.findViewById(R.id.editTextTextDuradaServei);
-        editTextCost = view.findViewById(R.id.editTextTextCostServei);
-        botoAceptar = view.findViewById(R.id.buttonAltaNovaServei);
-
-        botoAceptar.setOnClickListener(new View.OnClickListener() {
+        view =  inflater.inflate(R.layout.fragment_frag_baixa_estudiant, container, false);
+        editTextCodiBaixa = view.findViewById(R.id.editTextCodiEstudiant);
+        buttonAceptarBaixaEstudiant = view.findViewById(R.id.buttonAceptarBaixaEstudiant);
+        buttonAceptarBaixaEstudiant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                donarAlta(view);
+                aceptarBaixa(view);
             }
         });
         return view;
     }
 
-    public void donarAlta(View view){
+    public void aceptarBaixa(View view){
         //Creamos el objetos json que mandamos al servidor
         JSONObject json = new JSONObject();
         try {
-            json.put("crida","ALTA SERVEI" );
+            json.put("crida","BAIXA ESTUDIANT" );
             json.put("codiSessio", PantallaPrincipal.codiSessio);
             JSONObject jsonDades = new JSONObject();
-            jsonDades.put("nomServei",editTextNom.getText().toString());
-            jsonDades.put("durada",editTextDurada.getText().toString());
-            jsonDades.put("cost",editTextCost.getText().toString());
+            jsonDades.put("codiEstudiant",editTextCodiBaixa.getText().toString());
             json.put("dades",jsonDades);
             //Iniciamos la conexión al servidor
             Connexio connexio = new Connexio();
             String respuestaServidor = connexio.execute(json.toString()).get();
-            //          String respuestaServidor = "{\"resposta\":\"OK\"}";
+            //   String respuestaServidor = "{\"resposta\":\"OK\"}";
             if (respuestaServidor != null) {
                 JSONObject respostaServidorJson = new JSONObject(respuestaServidor);
                 if (respostaServidorJson.getString("resposta") != null) {
                     if ("OK".equalsIgnoreCase(respostaServidorJson.getString("resposta"))){
-                        Toast.makeText(getActivity(),"Servei donat d'alta correctament",Toast.LENGTH_LONG).show();
-                        //reiniciamos todos los camps
-                        editTextNom.setText("");
-                        editTextNom.requestFocus();
-                        editTextDurada.setText("");
-                        editTextCost.setText("");
+                        Toast.makeText(getActivity(),"Estudiant donat de baixa correctament",Toast.LENGTH_LONG).show();
 
                     }else{
                         Toast.makeText(getActivity(), respostaServidorJson.getString("missatge"), Toast.LENGTH_LONG).show();

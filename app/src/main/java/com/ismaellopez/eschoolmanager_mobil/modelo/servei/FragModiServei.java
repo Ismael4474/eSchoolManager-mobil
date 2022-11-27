@@ -68,7 +68,7 @@ public class FragModiServei extends Fragment {
                     bundle.putString("dadesResposta", resposataServidor);
                     getParentFragmentManager().setFragmentResult("resposta",bundle);
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                    fragmentManager.beginTransaction().add(R.id.frameLayoutModiServei, new FragModiDepartResult()).commit();
+                    fragmentManager.beginTransaction().add(R.id.frameLayoutModiServei, new FragModiServeiResult()).commit();
                 }
             }
         });

@@ -1,8 +1,11 @@
-package com.ismaellopez.eschoolmanager_mobil.modelo.servei;
+package com.ismaellopez.eschoolmanager_mobil.modelo.estudiant;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +17,7 @@ import android.widget.Toast;
 import com.ismaellopez.eschoolmanager_mobil.R;
 import com.ismaellopez.eschoolmanager_mobil.controlador.Connexio;
 import com.ismaellopez.eschoolmanager_mobil.modelo.PantallaPrincipal;
+import com.ismaellopez.eschoolmanager_mobil.modelo.empleat.FragModiEmpleatResult;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,16 +25,15 @@ import org.json.JSONObject;
 import java.util.concurrent.ExecutionException;
 
 
-public class FragAltaServei extends Fragment {
+public class FragModiEstudiant extends Fragment {
 
     View view;
-    EditText editTextNom,editTextDurada,editTextCost;
-    Button botoAceptar;
+    EditText editTextCodiModi;
+    Button buttonModiBuscar;
 
-    public FragAltaServei() {
+    public FragModiEstudiant() {
         // Required empty public constructor
     }
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,46 +45,49 @@ public class FragAltaServei extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_frag_alta_servei, container, false);
-        editTextNom = view.findViewById(R.id.editTextTextNomServei);
-        editTextDurada = view.findViewById(R.id.editTextTextDuradaServei);
-        editTextCost = view.findViewById(R.id.editTextTextCostServei);
-        botoAceptar = view.findViewById(R.id.buttonAltaNovaServei);
-
-        botoAceptar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                donarAlta(view);
-            }
-        });
-        return view;
+        return inflater.inflate(R.layout.fragment_frag_modi_estudiant, container, false);
     }
 
-    public void donarAlta(View view){
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        editTextCodiModi = view.findViewById(R.id.editTextModiEstudiant);
+        buttonModiBuscar = view.findViewById(R.id.buttonBaixaTrobarEstudiant);
+
+        buttonModiBuscar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String resposataServidor = cercarEstudiant(view);
+                if (resposataServidor != null){
+                    //Creamos el buble para pasar los datos al otro fragment
+                    Bundle bundle = new Bundle();
+                    bundle.putString("dadesResposta", resposataServidor);
+                    getParentFragmentManager().setFragmentResult("resposta",bundle);
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    fragmentManager.beginTransaction().add(R.id.frameLayoutModiEstudiant, new FragModiEstudiantResult()).commit();
+                }
+            }
+        });
+    }
+
+    public String cercarEstudiant(View view){
         //Creamos el objetos json que mandamos al servidor
         JSONObject json = new JSONObject();
         try {
-            json.put("crida","ALTA SERVEI" );
+            json.put("crida","CONSULTA ESTUDIANT" );
             json.put("codiSessio", PantallaPrincipal.codiSessio);
             JSONObject jsonDades = new JSONObject();
-            jsonDades.put("nomServei",editTextNom.getText().toString());
-            jsonDades.put("durada",editTextDurada.getText().toString());
-            jsonDades.put("cost",editTextCost.getText().toString());
+            jsonDades.put("codiEstudiant",editTextCodiModi.getText().toString());
             json.put("dades",jsonDades);
             //Iniciamos la conexión al servidor
             Connexio connexio = new Connexio();
             String respuestaServidor = connexio.execute(json.toString()).get();
-            //          String respuestaServidor = "{\"resposta\":\"OK\"}";
+            //    String respuestaServidor = "{\"resposta\":\"OK\"}";
             if (respuestaServidor != null) {
                 JSONObject respostaServidorJson = new JSONObject(respuestaServidor);
                 if (respostaServidorJson.getString("resposta") != null) {
                     if ("OK".equalsIgnoreCase(respostaServidorJson.getString("resposta"))){
-                        Toast.makeText(getActivity(),"Servei donat d'alta correctament",Toast.LENGTH_LONG).show();
-                        //reiniciamos todos los camps
-                        editTextNom.setText("");
-                        editTextNom.requestFocus();
-                        editTextDurada.setText("");
-                        editTextCost.setText("");
+                        return respuestaServidor;
 
                     }else{
                         Toast.makeText(getActivity(), respostaServidorJson.getString("missatge"), Toast.LENGTH_LONG).show();
@@ -90,11 +96,11 @@ public class FragAltaServei extends Fragment {
             }
         } catch (JSONException e) {
             e.printStackTrace();
-
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        return null;
     }
 }
