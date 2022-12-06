@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
                 pantallaPrincipal.putExtra("nom", respostaServidorDades.getString("nom"));
                 pantallaPrincipal.putExtra("nomDepartament", respostaServidorDades.getString("nomDepartament"));
                 pantallaPrincipal.putExtra("codiSessio", respostaServidorDades.getString("codiSessio"));
+                pantallaPrincipal.putExtra("codiEmpleat", respostaServidorDades.getString("codiEmpleat"));
                 pantallaPrincipal.putExtra("permisos", respostaServidorDades.getString("permisos"));
                 startActivity(pantallaPrincipal);
             }

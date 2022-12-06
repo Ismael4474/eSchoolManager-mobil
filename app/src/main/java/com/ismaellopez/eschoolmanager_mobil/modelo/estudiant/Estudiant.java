@@ -1,5 +1,7 @@
 package com.ismaellopez.eschoolmanager_mobil.modelo.estudiant;
 
+import androidx.annotation.NonNull;
+
 public class Estudiant {
 
     private String nom;
@@ -82,5 +84,11 @@ public class Estudiant {
 
     public void setRegistrat(boolean registrat) {
         this.registrat = registrat;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return nom + " "+ cognoms;
     }
 }

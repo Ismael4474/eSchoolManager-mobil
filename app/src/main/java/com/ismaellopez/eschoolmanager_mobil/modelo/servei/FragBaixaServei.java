@@ -74,7 +74,7 @@ public class FragBaixaServei extends Fragment {
                 if (respostaServidorJson.getString("resposta") != null) {
                     if ("OK".equalsIgnoreCase(respostaServidorJson.getString("resposta"))){
                         Toast.makeText(getActivity(),"Departament donat de baixa correctament",Toast.LENGTH_LONG).show();
-
+                        editTextCodiBaixa.setText("");
                     }else{
                         Toast.makeText(getActivity(), respostaServidorJson.getString("missatge"), Toast.LENGTH_LONG).show();
                     }

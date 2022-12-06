@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".modelo.empleat.FragModiEmpleat">
+    tools:context=".modelo.sessio.FragModiSessio">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -14,13 +14,12 @@
 
 
         <TextView
-            android:id="@+id/titolModiEmpleat"
+            android:id="@+id/titolModiSessio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
             android:fontFamily="@font/alfa_slab_one"
             android:shadowColor="#151313"
-            android:text="Modificació Empleat"
+            android:text="Modificació Sessio"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/black"
@@ -30,41 +29,41 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textViewInfoModiEmpleat"
+            android:id="@+id/textViewInfoModiSessio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:gravity="center"
-            android:text="Introdueix el codi del empleat que vols modificar"
+            android:text="Introdueix el codi de la sessió que vols modificar"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/titolModiEmpleat" />
+            app:layout_constraintTop_toBottomOf="@+id/titolModiSessio" />
 
         <EditText
-            android:id="@+id/editTextModiEmpleat"
+            android:id="@+id/editTextModiSessio"
             android:layout_width="131dp"
-            android:layout_height="42dp"
+            android:layout_height="48dp"
             android:layout_marginTop="8dp"
             android:background="#C3C1C1"
             android:ems="10"
-            android:hint="Codi empleat"
+            android:hint="Codi sessio"
             android:inputType="textPersonName"
             android:textColor="#070707"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewInfoModiEmpleat" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewInfoModiSessio" />
 
         <Button
-            android:id="@+id/buttonBaixaTrobarEmpleat"
+            android:id="@+id/buttonBaixaTrobarSessio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="Cercar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextModiEmpleat" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextModiSessio" />
 
         <View
             android:id="@+id/view"
@@ -72,17 +71,17 @@
             android:layout_height="1dp"
             android:layout_marginTop="4dp"
             android:background="@color/black"
-            app:layout_constraintTop_toBottomOf="@+id/buttonBaixaTrobarEmpleat"
+            app:layout_constraintTop_toBottomOf="@+id/buttonBaixaTrobarSessio"
             tools:layout_editor_absoluteX="0dp"></View>
 
         <FrameLayout
-            android:id="@+id/frameLayoutModiEmpleat"
+            android:id="@+id/frameLayoutModiSessio"
             android:layout_width="399dp"
             android:layout_height="560dp"
             android:layout_marginTop="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonBaixaTrobarEmpleat">
+            app:layout_constraintTop_toBottomOf="@+id/buttonBaixaTrobarSessio">
 
         </FrameLayout>
 

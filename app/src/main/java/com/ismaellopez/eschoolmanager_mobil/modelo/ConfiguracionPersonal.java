@@ -27,11 +27,11 @@ import java.util.concurrent.ExecutionException;
 public class ConfiguracionPersonal extends AppCompatActivity {
 
     Toolbar toolbar;
-    EditText editTextNom,editTextCognom,editTextDni,editTextData,editTextAdre,editTextTelef,editTextMail,editTextCodiDepart,editTextContra;
-    TextView textCodiEmpleat;
-    CheckBox checkBoxActiu;
+    EditText editTextNom,editTextCognom,editTextDni,editTextData,editTextAdre,editTextTelef,editTextMail,editTextContra;
     Button botoCancelar,botoAceptar;
-
+    String  usuari;
+    int codiDepartament;
+    boolean actiu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,18 +41,17 @@ public class ConfiguracionPersonal extends AppCompatActivity {
         setSupportActionBar(toolbar);
         toolbar.setTitle("eSchoolManager");
         toolbar.setSubtitle(PantallaPrincipal.nomDepartament + " -> " + PantallaPrincipal.nom);
-        editTextNom = findViewById(R.id.editTexConfNom);
-        editTextCognom = findViewById(R.id.editTexConfCognom);
-        editTextDni = findViewById(R.id.editTexAltaEmpleatDni);
-        editTextData = findViewById(R.id.editTextDate);
-        editTextAdre = findViewById(R.id.editTextAltaEmpleatPostalAddress);
-        editTextTelef = findViewById(R.id.editTextPhone);
-        editTextMail = findViewById(R.id.editTextEmailAddress);
+        editTextNom = findViewById(R.id.editTexConfNomPers);
+        editTextCognom = findViewById(R.id.editTexConfCognomPers);
+        editTextDni = findViewById(R.id.editTexAltaEmpleatDniPers);
+        editTextData = findViewById(R.id.editTextDatePers);
+        editTextAdre = findViewById(R.id.editTextAltaEmpleatPostalAddressPers);
+        editTextTelef = findViewById(R.id.editTextPhonePers);
+        editTextMail = findViewById(R.id.editTextEmailAddressPers);
+        editTextContra = findViewById(R.id.editTexConfContraPers);
 
-        editTextContra = findViewById(R.id.editTexConfContra);
-
-        botoCancelar = findViewById(R.id.buttonConfCancelar);
-        botoAceptar = findViewById(R.id.buttonConfAceptar);
+        botoCancelar = findViewById(R.id.buttonConfCancelarPers);
+        botoAceptar = findViewById(R.id.buttonConfAceptarPers);
 
         botoCancelar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,7 +63,7 @@ public class ConfiguracionPersonal extends AppCompatActivity {
         botoAceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                modificarPropia();
             }
         });
         try {
@@ -78,13 +77,60 @@ public class ConfiguracionPersonal extends AppCompatActivity {
         }
     }
 
+    public void modificarPropia(){
+        //Creamos el objetos json que mandamos al servidor
+        JSONObject json = new JSONObject();
+        try {
+            json.put("crida","MODI EMPLEAT" );
+            json.put("codiSessio", PantallaPrincipal.codiSessio);
+            JSONObject jsonDades = new JSONObject();
+            jsonDades.put("codiEmpleat", PantallaPrincipal.codiEmpleat);
+            jsonDades.put("nom",editTextNom.getText().toString());
+            jsonDades.put("cognoms",editTextCognom.getText().toString());
+            jsonDades.put("dni",editTextDni.getText().toString());
+            jsonDades.put("dataNaixement",(editTextData.getText().toString()));
+            jsonDades.put("adreca",editTextAdre.getText().toString());
+            jsonDades.put("telefon",editTextTelef.getText().toString());
+            jsonDades.put("email",editTextMail.getText().toString());
+            jsonDades.put("codiDepartament",codiDepartament);
+            jsonDades.put("usuari",usuari);
+            jsonDades.put("contrasenya",editTextContra.getText().toString());
+            jsonDades.put("actiu",actiu);
+            json.put("dades",jsonDades);
+            //Iniciamos la conexión al servidor
+            Connexio connexio = new Connexio();
+            String respuestaServidor = connexio.execute(json.toString()).get();
+            //          String respuestaServidor = "{\"resposta\":\"OK\"}";
+            if (respuestaServidor != null) {
+                JSONObject respostaServidorJson = new JSONObject(respuestaServidor);
+                if (respostaServidorJson.getString("resposta") != null) {
+                    if ("OK".equalsIgnoreCase(respostaServidorJson.getString("resposta"))){
+                        Toast.makeText(this,"Usuari modificat correctament",Toast.LENGTH_LONG).show();
+                        //reiniciamos todos los camps
+
+                    }else{
+                        Toast.makeText(this, respostaServidorJson.getString("missatge"), Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     public void cridaServidor() throws JSONException, ExecutionException, InterruptedException {
         //Creamos el objetos json que mandamos al servidor
         JSONObject json = new JSONObject();
-        json.put("crida","MODI EMPLEAT" );
+        json.put("crida","CONSULTA EMPLEAT" );
         json.put("codiSessio", PantallaPrincipal.codiSessio);
         JSONObject jsonDades = new JSONObject();
-        jsonDades.put("codiEmpleat","");
+        jsonDades.put("codiEmpleat",PantallaPrincipal.codiEmpleat);
          json.put("dades",jsonDades);
         //Iniciamos la conexión al servidor
         Connexio connexio = new Connexio();
@@ -97,18 +143,16 @@ public class ConfiguracionPersonal extends AppCompatActivity {
                     if (respostaServidorJson.getString("dades")!= null) {
                          //rellenamos los checkBox con la respuest del servidor
                         JSONObject respostaJsonPermisos = new JSONObject(respostaServidorJson.getString("dades"));
-                        textCodiEmpleat.setText(respostaJsonPermisos.getInt("codiEmpleat"));
                         editTextNom.setText(respostaJsonPermisos.getString("nom"));
                         editTextCognom.setText(respostaJsonPermisos.getString("cognoms"));
                         editTextDni.setText(respostaJsonPermisos.getString("dni"));
-                        editTextData.setText(respostaJsonPermisos.getString("dataNaixament"));
+                        editTextData.setText(respostaJsonPermisos.getString("dataNaixement"));
                         editTextAdre.setText(respostaJsonPermisos.getString("adreca"));
                         editTextTelef.setText(respostaJsonPermisos.getString("telefon"));
-                        editTextMail.setText(respostaJsonPermisos.getString("mail"));
-                        editTextCodiDepart.setText(respostaJsonPermisos.getInt("codiDepartament"));
-                        editTextContra.setText(respostaJsonPermisos.getString("contrasenya"));
-                        checkBoxActiu.setChecked(respostaJsonPermisos.getBoolean("actiu"));
-
+                        editTextMail.setText(respostaJsonPermisos.getString("email"));
+                        codiDepartament = respostaJsonPermisos.getInt("codiDepartament");
+                        usuari = respostaJsonPermisos.getString("usuari");
+                        actiu = respostaJsonPermisos.getBoolean("actiu");
                     }
                 }else{
                     Toast.makeText(this, respostaServidorJson.getString("missatge"), Toast.LENGTH_LONG).show();

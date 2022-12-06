@@ -32,11 +32,12 @@
         android:layout_width="38dp"
         android:layout_height="20dp"
         android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
         android:text="Nom:"
         android:textColor="@color/black"
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="113dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textConfTitul" />
 
     <TextView
         android:id="@+id/textConfTitulGognom"
@@ -123,7 +124,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textConfTitulMail" />
 
     <EditText
-        android:id="@+id/editTextEmailAddress"
+        android:id="@+id/editTextEmailAddressPers"
         android:layout_width="210dp"
         android:layout_height="32dp"
         android:layout_marginStart="16dp"
@@ -136,12 +137,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textConfTitulMail"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextPhonePers" />
 
     <EditText
-        android:id="@+id/editTexConfNom"
+        android:id="@+id/editTexConfNomPers"
         android:layout_width="172dp"
         android:layout_height="28dp"
+        android:layout_marginTop="4dp"
         android:background="#E8E0E0"
         android:ems="10"
         android:inputType="textPersonName"
@@ -149,12 +151,12 @@
         android:textColor="@color/black"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.137"
+        app:layout_constraintHorizontal_bias="0.141"
         app:layout_constraintStart_toEndOf="@+id/textConfTitulNom"
         app:layout_constraintTop_toBottomOf="@+id/textConfTitul" />
 
     <EditText
-        android:id="@+id/editTexConfCognom"
+        android:id="@+id/editTexConfCognomPers"
         android:layout_width="288dp"
         android:layout_height="35dp"
         android:layout_marginTop="8dp"
@@ -167,10 +169,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textConfTitulGognom"
-        app:layout_constraintTop_toBottomOf="@+id/editTexConfNom" />
+        app:layout_constraintTop_toBottomOf="@+id/editTexConfNomPers" />
 
     <EditText
-        android:id="@+id/editTexAltaEmpleatDni"
+        android:id="@+id/editTexAltaEmpleatDniPers"
         android:layout_width="175dp"
         android:layout_height="32dp"
         android:layout_marginTop="12dp"
@@ -183,10 +185,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.102"
         app:layout_constraintStart_toEndOf="@+id/textConfTitulDni"
-        app:layout_constraintTop_toBottomOf="@+id/editTexConfCognom" />
+        app:layout_constraintTop_toBottomOf="@+id/editTexConfCognomPers" />
 
     <EditText
-        android:id="@+id/editTextDate"
+        android:id="@+id/editTextDatePers"
         android:layout_width="133dp"
         android:layout_height="34dp"
         android:layout_marginTop="8dp"
@@ -198,10 +200,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textConfTitulData"
-        app:layout_constraintTop_toBottomOf="@+id/editTexAltaEmpleatDni" />
+        app:layout_constraintTop_toBottomOf="@+id/editTexAltaEmpleatDniPers" />
 
     <EditText
-        android:id="@+id/editTextAltaEmpleatPostalAddress"
+        android:id="@+id/editTextAltaEmpleatPostalAddressPers"
         android:layout_width="300dp"
         android:layout_height="35dp"
         android:layout_marginTop="8dp"
@@ -213,10 +215,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textConfTitulAdre"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextDatePers" />
 
     <EditText
-        android:id="@+id/editTextPhone"
+        android:id="@+id/editTextPhonePers"
         android:layout_width="168dp"
         android:layout_height="34dp"
         android:layout_marginTop="8dp"
@@ -228,10 +230,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textConfTitulTelefon"
-        app:layout_constraintTop_toBottomOf="@+id/editTextAltaEmpleatPostalAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextAltaEmpleatPostalAddressPers" />
 
     <EditText
-        android:id="@+id/editTexConfContra"
+        android:id="@+id/editTexConfContraPers"
         android:layout_width="173dp"
         android:layout_height="31dp"
         android:layout_marginTop="4dp"
@@ -244,10 +246,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintStart_toEndOf="@+id/textConfTitulContra"
-        app:layout_constraintTop_toBottomOf="@+id/editTextEmailAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmailAddressPers" />
 
     <Button
-        android:id="@+id/buttonConfAceptar"
+        android:id="@+id/buttonConfAceptarPers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="116dp"
@@ -256,23 +258,23 @@
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTexConfContra"
+        app:layout_constraintTop_toBottomOf="@+id/editTexConfContraPers"
         app:layout_constraintVertical_bias="0.62" />
 
     <Button
-        android:id="@+id/buttonConfCancelar"
+        android:id="@+id/buttonConfCancelarPers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cancelar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/buttonConfAceptar"
-        app:layout_constraintTop_toBottomOf="@+id/editTexConfContra"
+        app:layout_constraintStart_toEndOf="@+id/buttonConfAceptarPers"
+        app:layout_constraintTop_toBottomOf="@+id/editTexConfContraPers"
         app:layout_constraintVertical_bias="0.62" />
 
     <ImageButton
-        android:id="@+id/imageButtonDateAltaEmpl"
+        android:id="@+id/imageButtonDateAltaEmplPers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
@@ -281,8 +283,8 @@
         android:src="@drawable/ic_baseline_calendar_month_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.104"
-        app:layout_constraintStart_toEndOf="@+id/editTextDate"
-        app:layout_constraintTop_toBottomOf="@+id/editTexConfCognom" />
+        app:layout_constraintStart_toEndOf="@+id/editTextDatePers"
+        app:layout_constraintTop_toBottomOf="@+id/editTexConfCognomPers" />
 
     <DatePicker
         android:id="@+id/dataPickerConf"

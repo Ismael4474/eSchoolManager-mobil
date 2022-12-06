@@ -1,4 +1,4 @@
-package com.ismaellopez.eschoolmanager_mobil.modelo.empleat;
+package com.ismaellopez.eschoolmanager_mobil.modelo.sessio;
 
 import android.os.Bundle;
 
@@ -27,12 +27,12 @@ import java.util.Iterator;
 import java.util.concurrent.ExecutionException;
 
 
-public class FragLlistaEmpleat extends Fragment {
+public class FragLlistaSessio extends Fragment {
 
     View view;
-    private RecyclerView recyclerView;
+    RecyclerView recyclerView;
 
-    public FragLlistaEmpleat() {
+    public FragLlistaSessio() {
         // Required empty public constructor
     }
 
@@ -47,13 +47,13 @@ public class FragLlistaEmpleat extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_frag_llista_empleat, container, false);
-        recyclerView = view.findViewById(R.id.recicleEmpleat);
+        view = inflater.inflate(R.layout.fragment_frag_llista_sessio, container, false);
+        recyclerView = view.findViewById(R.id.recicleSessio);
         try {
-            JSONArray arrayEmpleat= aconseguirLlista("","");
-            if(arrayEmpleat!=null) {
-                ArrayList<Empleat> llistaEmpleats =montarLlista(arrayEmpleat);
-                RecycleAdapterEmpleat adapter = new RecycleAdapterEmpleat(llistaEmpleats);
+            JSONArray arraySessio= aconseguirLlista();
+            if(arraySessio!=null) {
+                ArrayList<Sessio> llistaSessions =montarLlista(arraySessio);
+                RecycleAdapterSessio adapter = new RecycleAdapterSessio(llistaSessions);
                 RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
                 recyclerView.setLayoutManager(layoutManager);
                 recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -70,17 +70,15 @@ public class FragLlistaEmpleat extends Fragment {
         }
         return view;
     }
-
-    //metodo per aconseguir la llista de empleats del servidor
-    public JSONArray aconseguirLlista(String camp, String valor) throws JSONException, ExecutionException, InterruptedException {
-        JSONArray arrayEmpleats = new JSONArray();
+    //metodo per aconseguir la llista de sessions del servidor
+    public JSONArray aconseguirLlista() throws JSONException, ExecutionException, InterruptedException {
+        JSONArray arraySessio = new JSONArray();
         JSONObject json = new JSONObject();
-        json.put("crida","LLISTA EMPLEATS" );
+        json.put("crida","LLISTA SESSIONS" );
         json.put("codiSessio", PantallaPrincipal.codiSessio);
         JSONObject jsonDades = new JSONObject();
         jsonDades.put("ordre","");
-        jsonDades.put("camp",camp);
-        jsonDades.put("valor",valor);
+        jsonDades.put("camp","");
         json.put("dades",jsonDades);
         //Iniciamos la conexión al servidor
         Connexio connexio = new Connexio();
@@ -94,7 +92,7 @@ public class FragLlistaEmpleat extends Fragment {
                         Iterator<String> x = jsonDadesResposta.keys();
                         while (x.hasNext()){
                             String key= (String)x.next();
-                            arrayEmpleats.put(jsonDadesResposta.get(key));
+                            arraySessio.put(jsonDadesResposta.get(key));
                         }
                     }
                 }else{
@@ -102,22 +100,25 @@ public class FragLlistaEmpleat extends Fragment {
                 }
             }
         }
-        return arrayEmpleats;
+        return arraySessio;
     }
-    //metode per montar una llista de empleats
-    public ArrayList<Empleat> montarLlista(JSONArray arrayEmpleats) throws JSONException {
-        ArrayList<Empleat> llistaEmpleats = new ArrayList<>();
-        for (int i=0;i<arrayEmpleats.length();i++){
-            JSONObject jsonEmpleats = arrayEmpleats.getJSONObject(i);
-            Empleat empleat = new Empleat();
-            empleat.setCodiEmpleat(jsonEmpleats.getInt("codiEmpleat"));
-            empleat.setNom(jsonEmpleats.getString("nomEmpleat"));
-            empleat.setCognoms(jsonEmpleats.getString("cognomsEmpleat"));
-            empleat.setCodiDepartament(jsonEmpleats.getInt("codiDepartament"));
-            empleat.setNomDepartament(jsonEmpleats.getString("nomDepartament"));
-            llistaEmpleats.add(empleat);
+    //metode per montar una llista de sessions
+    public ArrayList<Sessio> montarLlista(JSONArray arraySessio) throws JSONException {
+        ArrayList<Sessio> llistaSessions = new ArrayList<>();
+        for (int i=0;i<arraySessio.length();i++){
+            JSONObject jsonSessio = arraySessio.getJSONObject(i);
+            Sessio sessio = new Sessio();
+            sessio.setCodiSessio(jsonSessio.getInt("codiSessio"));
+            sessio.setDataSessio(jsonSessio.getString("dataIHora"));
+            sessio.setCognomsEmpleat(jsonSessio.getString("cognomsEmpleat"));
+            sessio.setNomEmpleat(jsonSessio.getString("nomEmpleat"));
+            sessio.setNomEstudiant(jsonSessio.getString("nomEstudiant"));
+            sessio.setCognomsEstudiant(jsonSessio.getString("cognomsEstudiant"));
+            sessio.setNomServei(jsonSessio.getString("nomServei"));
+            llistaSessions.add(sessio);
         }
-        return llistaEmpleats;
+        return llistaSessions;
     }
+
 
 }

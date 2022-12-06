@@ -1,5 +1,7 @@
 package com.ismaellopez.eschoolmanager_mobil.modelo.servei;
 
+import androidx.annotation.NonNull;
+
 public class Servei {
     private String nom;
     private int codi;
@@ -36,5 +38,11 @@ public class Servei {
 
     public void setCost(double cost) {
         this.cost = cost;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return nom;
     }
 }

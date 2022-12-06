@@ -113,5 +113,4 @@ public class FragLlistaDepart extends Fragment {
         }
         return llistaDepartaments;
     }
-
 }

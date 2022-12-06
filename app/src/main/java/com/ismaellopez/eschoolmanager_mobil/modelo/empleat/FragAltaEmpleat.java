@@ -182,7 +182,7 @@ public class FragAltaEmpleat extends Fragment {
         //Iniciamos la conexión al servidor
         Connexio connexio = new Connexio();
         String respuestaServidor = connexio.execute(json.toString()).get();
-        if (respuestaServidor != null) {
+       if (respuestaServidor != null) {
             JSONObject respostaServidorJson = new JSONObject(respuestaServidor);
             if (respostaServidorJson.getString("resposta") != null) {
                 if ("OK".equalsIgnoreCase(respostaServidorJson.getString("resposta"))){

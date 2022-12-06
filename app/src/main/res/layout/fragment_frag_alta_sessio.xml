@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".modelo.sessio.FragAltaSessio">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="-23dp">
+
+
+        <TextView
+            android:id="@+id/titolAltaSessio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/alfa_slab_one"
+            android:shadowColor="#151313"
+            android:text="Alta Nova Sessió"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+        android:id="@+id/text1"
+        android:layout_width="78dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="20dp"
+        android:text="Empleat:"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titolAltaSessio" />
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="78dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="8dp"
+            android:text="Estudiant:"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text1" />
+
+        <TextView
+            android:id="@+id/text3"
+            android:layout_width="78dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="8dp"
+            android:text="Servei:"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text2" />
+
+        <TextView
+            android:id="@+id/text4"
+            android:layout_width="89dp"
+            android:layout_height="26dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="8dp"
+            android:text="Data:"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text3" />
+        <TextView
+            android:id="@+id/text5"
+            android:layout_width="89dp"
+            android:layout_height="26dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="8dp"
+            android:text="Hora:"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text4" />
+
+        <Spinner
+            android:id="@+id/spinnerAltaEmpleatSessio"
+            android:layout_width="210dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="20dp"
+            android:background="#E8E0E0"
+            android:dropDownSelector="@color/white"
+            android:scrollbarThumbHorizontal="@color/black"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.336"
+            app:layout_constraintStart_toEndOf="@+id/text1"
+            app:layout_constraintTop_toBottomOf="@+id/titolAltaSessio" />
+
+        <Spinner
+            android:id="@+id/spinnerAltaEstudiantSessio"
+            android:layout_width="210dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:background="#E8E0E0"
+            android:dropDownSelector="@color/white"
+
+            android:scrollbarThumbHorizontal="@color/black"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/text2"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerAltaEmpleatSessio" />
+
+        <Spinner
+            android:id="@+id/spinnerAltaServeiSessio"
+            android:layout_width="210dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:background="#E8E0E0"
+            android:dropDownSelector="@color/white"
+
+            android:scrollbarThumbHorizontal="@color/black"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/text3"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerAltaEstudiantSessio" />
+
+        <EditText
+            android:id="@+id/editTexAltaDataSessio"
+            android:layout_width="113dp"
+            android:layout_height="29dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="8dp"
+            android:background="#E8E0E0"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintStart_toEndOf="@+id/text4"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerAltaServeiSessio" />
+
+        <EditText
+            android:id="@+id/editTexAltaHoraSessio"
+            android:layout_width="113dp"
+            android:layout_height="29dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="8dp"
+            android:background="#E8E0E0"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintStart_toEndOf="@+id/text5"
+            app:layout_constraintTop_toBottomOf="@+id/editTexAltaDataSessio" />
+
+        <ImageButton
+            android:id="@+id/imageButtonDateAltaSessio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="124dp"
+            android:background="@color/white"
+            android:drawableTint="@color/white"
+            android:src="@drawable/ic_baseline_calendar_month_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.666"
+            app:layout_constraintStart_toEndOf="@+id/editTexAltaDataSessio"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerAltaServeiSessio" />
+
+        <ImageButton
+            android:id="@+id/imageButtonHoraAltaSessio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="92dp"
+            android:background="@color/white"
+            android:drawableTint="@color/white"
+            android:src="@drawable/ic_baseline_calendar_month_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.181"
+            app:layout_constraintStart_toEndOf="@+id/editTexAltaHoraSessio"
+            app:layout_constraintTop_toBottomOf="@+id/imageButtonDateAltaSessio" />
+
+        <Button
+            android:id="@+id/buttonAltaSessioAceptar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:text="Aceptar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.448"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTexAltaHoraSessio" />
+
+        <DatePicker
+            android:id="@+id/dataPickerAltaSessio"
+            android:layout_width="350dp"
+            android:layout_height="450dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/black"
+            android:backgroundTint="#D6D6D6"
+            android:calendarTextColor="@color/black"
+            android:headerBackground="@color/purple_500"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.737"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/titolAltaSessio"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

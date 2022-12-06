@@ -1,4 +1,4 @@
-package com.ismaellopez.eschoolmanager_mobil.modelo.empleat;
+package com.ismaellopez.eschoolmanager_mobil.modelo.sessio;
 
 import android.os.Bundle;
 
@@ -20,14 +20,13 @@ import org.json.JSONObject;
 
 import java.util.concurrent.ExecutionException;
 
-
-public class FragBaixaEmpleat extends Fragment {
+public class FragBaixaSessio extends Fragment {
 
     View view;
     EditText editTextCodiBaixa;
-    Button buttonAceptarBaixaEmpleat;
+    Button buttonAceptarBaixaSessio;
 
-    public FragBaixaEmpleat() {
+    public FragBaixaSessio() {
         // Required empty public constructor
     }
 
@@ -36,17 +35,18 @@ public class FragBaixaEmpleat extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+ 
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_frag_baixa_empleat, container, false);
-        editTextCodiBaixa = view.findViewById(R.id.editTextCodiEmpleat);
-        buttonAceptarBaixaEmpleat = view.findViewById(R.id.buttonAceptarBaixaEmpleat);
-        buttonAceptarBaixaEmpleat.setOnClickListener(new View.OnClickListener() {
+        view = inflater.inflate(R.layout.fragment_frag_baixa_sessio, container, false);
+        editTextCodiBaixa = view.findViewById(R.id.editTextCodiSessio);
+        buttonAceptarBaixaSessio = view.findViewById(R.id.buttonAceptarBaixaSessio);
+
+        buttonAceptarBaixaSessio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 aceptarBaixa(view);
@@ -59,10 +59,10 @@ public class FragBaixaEmpleat extends Fragment {
         //Creamos el objetos json que mandamos al servidor
         JSONObject json = new JSONObject();
         try {
-            json.put("crida","BAIXA EMPLEAT" );
+            json.put("crida","BAIXA SESSIO" );
             json.put("codiSessio", PantallaPrincipal.codiSessio);
             JSONObject jsonDades = new JSONObject();
-            jsonDades.put("codiEmpleat",editTextCodiBaixa.getText().toString());
+            jsonDades.put("codiSessio",editTextCodiBaixa.getText().toString());
             json.put("dades",jsonDades);
             //Iniciamos la conexión al servidor
             Connexio connexio = new Connexio();
@@ -72,7 +72,7 @@ public class FragBaixaEmpleat extends Fragment {
                 JSONObject respostaServidorJson = new JSONObject(respuestaServidor);
                 if (respostaServidorJson.getString("resposta") != null) {
                     if ("OK".equalsIgnoreCase(respostaServidorJson.getString("resposta"))){
-                        Toast.makeText(getActivity(),"Empleat donat de baixa correctament",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(),"Sessio donada de baixa correctament",Toast.LENGTH_LONG).show();
                         editTextCodiBaixa.setText("");
                     }else{
                         Toast.makeText(getActivity(), respostaServidorJson.getString("missatge"), Toast.LENGTH_LONG).show();

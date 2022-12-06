@@ -1,5 +1,7 @@
 package com.ismaellopez.eschoolmanager_mobil.modelo.empleat;
 
+import androidx.annotation.NonNull;
+
 public class Empleat {
 
     private String nom;
@@ -118,5 +120,11 @@ public class Empleat {
 
     public void setNomDepartament(String nomDepartament) {
         this.nomDepartament = nomDepartament;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return nom + "->"+nomDepartament;
     }
 }

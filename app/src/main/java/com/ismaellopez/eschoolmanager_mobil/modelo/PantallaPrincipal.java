@@ -16,11 +16,13 @@ import android.widget.Button;
 
 import com.ismaellopez.eschoolmanager_mobil.R;
 import com.ismaellopez.eschoolmanager_mobil.controlador.Connexio;
+import com.ismaellopez.eschoolmanager_mobil.modelo.beca.MenuBeca;
 import com.ismaellopez.eschoolmanager_mobil.modelo.departaments.MenuDepartament;
 import com.ismaellopez.eschoolmanager_mobil.modelo.empleat.MenuEmpleat;
 import com.ismaellopez.eschoolmanager_mobil.modelo.escola.ModiEscola;
 import com.ismaellopez.eschoolmanager_mobil.modelo.estudiant.MenuEstudiant;
 import com.ismaellopez.eschoolmanager_mobil.modelo.servei.MenuServei;
+import com.ismaellopez.eschoolmanager_mobil.modelo.sessio.MenuSessio;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,6 +35,8 @@ public class PantallaPrincipal extends AppCompatActivity {
     public static String codiSessio = "";
     public static String nom = "";
     public static String nomDepartament = "";
+    public static int codiEmpleat ;
+
     Toolbar toolbar;
     Button botoEmpleat,botoServei,botoBeca,botoDepartament,botoEstudiant,botoEscola,botoSessio,botoInforme;    @SuppressLint("RestrictedApi")
     @Override
@@ -56,6 +60,7 @@ public class PantallaPrincipal extends AppCompatActivity {
         }
 
         codiSessio = getIntent().getStringExtra("codiSessio");
+        codiEmpleat = Integer.parseInt(getIntent().getStringExtra("codiEmpleat"));
         toolbar.setTitle("eSchoolManager");
         nom = getIntent().getStringExtra("nom");
         nomDepartament= getIntent().getStringExtra("nomDepartament");
@@ -173,5 +178,17 @@ public class PantallaPrincipal extends AppCompatActivity {
     public void accesEstudiant(View view){
         Intent estudiant= new Intent(this, MenuEstudiant.class);
         startActivity(estudiant);
+    }
+
+    //Acces en menu per donar de alta/baixa/modificar Beca
+    public void accesBeca(View view){
+        Intent beca= new Intent(this, MenuBeca.class);
+        startActivity(beca);
+    }
+
+    //Acces en menu per donar de alta/baixa/modificar Sessio
+    public void accesSessio(View view) {
+        Intent sessio = new Intent(this, MenuSessio.class);
+        startActivity(sessio);
     }
 }
