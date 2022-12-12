@@ -38,7 +38,7 @@ public class PantallaPrincipal extends AppCompatActivity {
     public static int codiEmpleat ;
 
     Toolbar toolbar;
-    Button botoEmpleat,botoServei,botoBeca,botoDepartament,botoEstudiant,botoEscola,botoSessio,botoInforme;    @SuppressLint("RestrictedApi")
+    Button botoEmpleat,botoServei,botoBeca,botoDepartament,botoEstudiant,botoEscola,botoSessio,botoFactura;    @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,9 +52,9 @@ public class PantallaPrincipal extends AppCompatActivity {
         botoEstudiant=findViewById(R.id.buttonEstudiant);
         botoEscola=findViewById(R.id.buttonEscola);
         botoSessio =findViewById(R.id.buttonSessio);
-        botoInforme=findViewById(R.id.buttonInforme);
+        botoFactura=findViewById(R.id.buttonFactura);
         try {
-            montarBotonera(getIntent().getStringExtra("permisos"),botoEmpleat,botoServei,botoBeca,botoDepartament,botoEstudiant,botoEscola,botoSessio);
+            montarBotonera(getIntent().getStringExtra("permisos"));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -69,10 +69,7 @@ public class PantallaPrincipal extends AppCompatActivity {
 
     }
 
-    private void montarBotonera(String permisos,
-                                Button botoEmpleat,Button botoServei,Button botoBeca,
-                                Button botoDepartament,Button botoEstudiant,Button botoEscola,
-                                Button botoSessio) throws JSONException {
+    private void montarBotonera(String permisos) throws JSONException {
 
         JSONObject respostaServidorPermisos = new JSONObject(permisos);
         if (respostaServidorPermisos.getBoolean("empleat")){
@@ -100,8 +97,8 @@ public class PantallaPrincipal extends AppCompatActivity {
         if (respostaServidorPermisos.getBoolean("sessio")){
             botoSessio.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.purple_700)));
         }
-        if (respostaServidorPermisos.getBoolean("informe")){
-            botoInforme.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.purple_700)));
+        if (respostaServidorPermisos.getBoolean("factura")){
+            botoFactura.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.purple_700)));
         }
         botoEmpleat.setClickable( respostaServidorPermisos.getBoolean("empleat"));
         botoEscola.setClickable(respostaServidorPermisos.getBoolean("escola"));
@@ -110,7 +107,7 @@ public class PantallaPrincipal extends AppCompatActivity {
         botoBeca.setClickable(respostaServidorPermisos.getBoolean("beca"));
         botoServei.setClickable(respostaServidorPermisos.getBoolean("servei"));
         botoSessio.setClickable(respostaServidorPermisos.getBoolean("sessio"));
-        botoInforme.setClickable((respostaServidorPermisos.getBoolean("informe")));
+        botoFactura.setClickable((respostaServidorPermisos.getBoolean("factura")));
     }
 
     @Override

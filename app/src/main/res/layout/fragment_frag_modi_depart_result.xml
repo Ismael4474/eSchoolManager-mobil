@@ -94,13 +94,13 @@
             app:layout_constraintTop_toBottomOf="@+id/checkBoxModiEstudiant" />
 
         <CheckBox
-            android:id="@+id/checkBoxModiInforme"
+            android:id="@+id/checkBoxModiFactura"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="144dp"
             android:layout_marginTop="4dp"
             android:buttonTint="@color/black"
-            android:text="Informe"
+            android:text="Factura"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/checkBoxModiEstudiant" />

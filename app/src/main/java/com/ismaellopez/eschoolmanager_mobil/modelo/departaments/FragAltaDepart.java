@@ -33,7 +33,7 @@ public class FragAltaDepart extends Fragment {
 
     View view;
     Button botoAlta;
-    CheckBox empleatCheck,departCheck,escolaCheck,becaCheck,sessioCheck,estudiantCheck,serveiCheck,informeCheckBox;
+    CheckBox empleatCheck,departCheck,escolaCheck,becaCheck,sessioCheck,estudiantCheck,serveiCheck,facturaCheckBox;
     EditText editTextNomDepart;
 
     @Override
@@ -50,7 +50,7 @@ public class FragAltaDepart extends Fragment {
         sessioCheck = view.findViewById(R.id.checkBoxAltaSessio);
         estudiantCheck = view.findViewById(R.id.checkBoxAltaEstudiant);
         serveiCheck = view.findViewById(R.id.checkBoxAltaServei);
-        informeCheckBox = view.findViewById((R.id.checkBoxAltaInforme));
+        facturaCheckBox = view.findViewById((R.id.checkBoxAltaFactura));
 
         botoAlta.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,7 +76,7 @@ public class FragAltaDepart extends Fragment {
             jsonPermisos.put("beca", becaCheck.isChecked());
             jsonPermisos.put("sessio", sessioCheck.isChecked());
             jsonPermisos.put("departament", departCheck.isChecked());
-            jsonPermisos.put("informe", informeCheckBox.isChecked());
+            jsonPermisos.put("factura", facturaCheckBox.isChecked());
             jsonPermisos.put("escola", escolaCheck.isChecked());
             jsonDades.put("permisos",jsonPermisos);
             json.put("dades",jsonDades);
@@ -99,7 +99,7 @@ public class FragAltaDepart extends Fragment {
                         sessioCheck.setChecked(false);
                         estudiantCheck.setChecked(false);
                         serveiCheck.setChecked(false);
-                        informeCheckBox.setChecked(false);
+                        facturaCheckBox.setChecked(false);
                     }else{
                         Toast.makeText(getActivity(), respostaServidorJson.getString("missatge"), Toast.LENGTH_LONG).show();
                     }

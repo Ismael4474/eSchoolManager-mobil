@@ -28,7 +28,7 @@ import java.util.concurrent.ExecutionException;
 public class FragModiDepartResult extends Fragment {
 
     EditText editTextModiDepart;
-    CheckBox empleatCheck,departCheck,escolaCheck,becaCheck,sessioCheck,estudiantCheck,serveiCheck,informeCheck;
+    CheckBox empleatCheck,departCheck,escolaCheck,becaCheck,sessioCheck,estudiantCheck,serveiCheck,facturaCheck;
     Button botoModiAceptar;
     String codiDepartament;
 
@@ -67,7 +67,7 @@ public class FragModiDepartResult extends Fragment {
                                         serveiCheck.setChecked(respostaJsonPermisos.getBoolean("servei"));
                                         sessioCheck.setChecked(respostaJsonPermisos.getBoolean("sessio"));
                                         estudiantCheck.setChecked(respostaJsonPermisos.getBoolean("estudiant"));
-                                        informeCheck.setChecked(respostaJsonPermisos.getBoolean("informe"));
+                                        facturaCheck.setChecked(respostaJsonPermisos.getBoolean("factura"));
                                     }
                                 }
                             }else{
@@ -104,7 +104,7 @@ public class FragModiDepartResult extends Fragment {
         sessioCheck = view.findViewById(R.id.checkBoxModiSessions);
         estudiantCheck = view.findViewById(R.id.checkBoxModiEstudiant);
         serveiCheck = view.findViewById(R.id.checkBoxModiServeis);
-        informeCheck = view.findViewById(R.id.checkBoxModiInforme);
+        facturaCheck = view.findViewById(R.id.checkBoxModiFactura);
         botoModiAceptar = view.findViewById(R.id.buttonConfirmarModificacio);
         //ponemos el boton a la escucha
         botoModiAceptar.setOnClickListener(new View.OnClickListener() {
@@ -132,7 +132,7 @@ public class FragModiDepartResult extends Fragment {
             jsonPermisos.put("sessio", sessioCheck.isChecked());
             jsonPermisos.put("departament", departCheck.isChecked());
             jsonPermisos.put("escola", escolaCheck.isChecked());
-            jsonPermisos.put("informe", informeCheck.isChecked());
+            jsonPermisos.put("factura", facturaCheck.isChecked());
             jsonDades.put("permisos",jsonPermisos);
             json.put("dades",jsonDades);
             //Iniciamos la conexión al servidor

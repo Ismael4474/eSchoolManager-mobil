@@ -75,7 +75,7 @@ public class MenuSessio extends AppCompatActivity {
         botonModi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                replaceFragment(new FragModiSessio());
             }
         });
 

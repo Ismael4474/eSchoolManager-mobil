@@ -148,14 +148,14 @@
             app:layout_constraintTop_toBottomOf="@+id/titolCheKBoxAltaDepart" />
 
         <CheckBox
-            android:id="@+id/checkBoxAltaInforme"
+            android:id="@+id/checkBoxAltaFactura"
             style="@style/Widget.AppCompat.CompoundButton.CheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
             android:layout_marginTop="12dp"
             android:buttonTint="@color/black"
-            android:text="Informe"
+            android:text="Factura"
             android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/checkBoxAltaSessio"
             app:layout_constraintTop_toBottomOf="@+id/checkBoxAltaBeca" />
