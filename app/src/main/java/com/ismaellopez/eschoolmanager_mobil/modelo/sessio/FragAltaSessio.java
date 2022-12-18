@@ -88,8 +88,8 @@ public class FragAltaSessio extends Fragment {
             llistaEstudiants =fragLlistaEstudiant.montarLlista(arrayEstudiants);
             arrayServeis= fragLlistaServei.aconseguirLlista();
             llistaServeis = fragLlistaServei.montarLlista(arrayServeis);
-            //recuperamos un listado pero sólo de los profesores
-            arrayEmpleats = fragLlistaEmpleat.aconseguirLlista("","");
+            //recuperamos un listado pero sólo de los profesores usamos el filtraje
+            arrayEmpleats = fragLlistaEmpleat.aconseguirLlista("codi","18");
             llistaEmpleats = fragLlistaEmpleat.montarLlista(arrayEmpleats);
             ArrayAdapter<Estudiant> adapterEstudiant = new ArrayAdapter<Estudiant>(getContext(), androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,llistaEstudiants);
             spinnerEstudiant.setAdapter(adapterEstudiant);

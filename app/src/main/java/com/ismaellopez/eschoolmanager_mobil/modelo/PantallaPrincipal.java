@@ -21,6 +21,7 @@ import com.ismaellopez.eschoolmanager_mobil.modelo.departaments.MenuDepartament;
 import com.ismaellopez.eschoolmanager_mobil.modelo.empleat.MenuEmpleat;
 import com.ismaellopez.eschoolmanager_mobil.modelo.escola.ModiEscola;
 import com.ismaellopez.eschoolmanager_mobil.modelo.estudiant.MenuEstudiant;
+import com.ismaellopez.eschoolmanager_mobil.modelo.factura.Factura;
 import com.ismaellopez.eschoolmanager_mobil.modelo.servei.MenuServei;
 import com.ismaellopez.eschoolmanager_mobil.modelo.sessio.MenuSessio;
 
@@ -187,5 +188,11 @@ public class PantallaPrincipal extends AppCompatActivity {
     public void accesSessio(View view) {
         Intent sessio = new Intent(this, MenuSessio.class);
         startActivity(sessio);
+    }
+
+    //Acces a factura
+    public void accesFactura(View view) {
+        Intent factura = new Intent(this, Factura.class);
+        startActivity(factura);
     }
 }
