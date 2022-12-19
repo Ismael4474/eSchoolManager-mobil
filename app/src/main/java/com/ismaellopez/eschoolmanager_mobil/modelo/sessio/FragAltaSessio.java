@@ -89,7 +89,7 @@ public class FragAltaSessio extends Fragment {
             arrayServeis= fragLlistaServei.aconseguirLlista();
             llistaServeis = fragLlistaServei.montarLlista(arrayServeis);
             //recuperamos un listado pero sólo de los profesores usamos el filtraje
-            arrayEmpleats = fragLlistaEmpleat.aconseguirLlista("codi","18");
+            arrayEmpleats = fragLlistaEmpleat.aconseguirLlista("codiDepartament","17");
             llistaEmpleats = fragLlistaEmpleat.montarLlista(arrayEmpleats);
             ArrayAdapter<Estudiant> adapterEstudiant = new ArrayAdapter<Estudiant>(getContext(), androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,llistaEstudiants);
             spinnerEstudiant.setAdapter(adapterEstudiant);
@@ -207,10 +207,9 @@ public class FragAltaSessio extends Fragment {
     }
     //meteodos para encontrar los codigos a traves del nombre
     public String calcularCodiEmpleat(String nom){
-        String [] nomEmpleat = nom.split("->");
         String codi = null;
         for (Empleat empleat: llistaEmpleats){
-            if (empleat.getNom().equalsIgnoreCase(nomEmpleat[0])){
+            if ((empleat.getNom() + " " + empleat.getCognoms()).equalsIgnoreCase(nom)){
                 codi = String.valueOf(empleat.getCodiEmpleat());
             }
         }

@@ -125,6 +125,6 @@ public class Empleat {
     @NonNull
     @Override
     public String toString() {
-        return nom + "->"+nomDepartament;
+        return nom + " "+cognoms;
     }
 }

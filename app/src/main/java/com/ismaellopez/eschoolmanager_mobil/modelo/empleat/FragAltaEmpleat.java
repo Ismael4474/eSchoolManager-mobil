@@ -178,6 +178,7 @@ public class FragAltaEmpleat extends Fragment {
         JSONObject jsonDades = new JSONObject();
         jsonDades.put("ordre","");
         jsonDades.put("camp","");
+        jsonDades.put("valor","");
         json.put("dades",jsonDades);
         //Iniciamos la conexión al servidor
         Connexio connexio = new Connexio();

@@ -77,6 +77,8 @@ public class FragModiSessioResult extends Fragment {
                                     //rellenamos el editText con la respuesta del servidor
                                     String[] dataIHora = respostaJsonDades.getString("dataIHora").split(" ");
                                     editTextCodi.setText(respostaJsonDades.getString("codiSessio"));
+                                    editTextCodi.setClickable(false);
+                                    editTextCodi.setEnabled(false);
                                     editTextData.setText(dataIHora[0]);
                                     editTextHora.setText(dataIHora[1]);
                                     FragLlistaEstudiant fragLlistaEstudiant = new FragLlistaEstudiant();
@@ -92,7 +94,7 @@ public class FragModiSessioResult extends Fragment {
                                         arrayServeis= fragLlistaServei.aconseguirLlista();
                                         llistaServeis = fragLlistaServei.montarLlista(arrayServeis);
                                         //recuperamos un listado pero sólo de los profesores
-                                        arrayEmpleats = fragLlistaEmpleat.aconseguirLlista("","");
+                                        arrayEmpleats = fragLlistaEmpleat.aconseguirLlista("codiDepartament","17");
                                         llistaEmpleats = fragLlistaEmpleat.montarLlista(arrayEmpleats);
                                         ArrayAdapter<Estudiant> adapterEstudiant = new ArrayAdapter<Estudiant>(getContext(), androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,llistaEstudiants);
                                         spinnerEstudiant.setAdapter(adapterEstudiant);
@@ -211,8 +213,6 @@ public class FragModiSessioResult extends Fragment {
                 if (respostaServidorJson.getString("resposta") != null) {
                     if ("OK".equalsIgnoreCase(respostaServidorJson.getString("resposta"))){
                         Toast.makeText(getActivity(),"Sessio modificada correctament",Toast.LENGTH_LONG).show();
-
-                        getActivity().onBackPressed();
                     }else{
                         Toast.makeText(getActivity(), respostaServidorJson.getString("missatge"), Toast.LENGTH_LONG).show();
                     }
@@ -231,7 +231,7 @@ public class FragModiSessioResult extends Fragment {
         String [] nomEmpleat = nom.split("->");
         String codi = null;
         for (Empleat empleat: llistaEmpleats){
-            if (empleat.getNom().equalsIgnoreCase(nomEmpleat[0])){
+            if ((empleat.getNom() + " " +empleat.getCognoms()).equalsIgnoreCase(nomEmpleat[0])){
                 codi = String.valueOf(empleat.getCodiEmpleat());
             }
         }

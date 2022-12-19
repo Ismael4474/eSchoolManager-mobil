@@ -29,16 +29,16 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-        android:id="@+id/text1"
-        android:layout_width="78dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="20dp"
-        android:text="Empleat:"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titolAltaSessio" />
+            android:id="@+id/text1"
+            android:layout_width="78dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="20dp"
+            android:text="Docent:"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titolAltaSessio" />
 
         <TextView
             android:id="@+id/text2"

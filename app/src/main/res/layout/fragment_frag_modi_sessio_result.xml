@@ -47,7 +47,7 @@
             android:layout_height="30dp"
             android:layout_marginStart="28dp"
             android:layout_marginTop="8dp"
-            android:text="Empleat:"
+            android:text="Docent:"
             android:textColor="@color/black"
             android:textSize="15dp"
             app:layout_constraintStart_toStartOf="parent"

@@ -133,7 +133,7 @@ public class FragAltaBeca extends Fragment {
     public String calcularCodiEstudiant(String nom){
         String codi = null;
         for (Estudiant estudiant: llistaEstudiants){
-            if (estudiant.getNom().equalsIgnoreCase(nom)){
+            if ((estudiant.getNom()+ " " +estudiant.getCognoms()).equalsIgnoreCase(nom)){
                 codi = String.valueOf(estudiant.getCodi());
             }
         }
